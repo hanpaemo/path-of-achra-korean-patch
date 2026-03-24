@@ -1,0 +1,1146 @@
+[gd_scene load_steps=102 format=2]
+
+[ext_resource path="res://Ham_Sprite/Buttons/Button_UI_Corners_Pressed.png" type="Texture" id=1]
+[ext_resource path="res://Ham_Sprite/Buttons/Button_UI_Corners_Hovered.png" type="Texture" id=2]
+[ext_resource path="res://Ham_Sprite/UI/Icon_Body.png" type="Texture" id=3]
+[ext_resource path="res://Ham_Sprite/Environment/EnterWorld.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Start_Menu.gd" type="Script" id=5]
+[ext_resource path="res://Ham_Sprite/Weapons/SwiftBlade.png" type="Texture" id=6]
+[ext_resource path="res://Ham_Sprite/EffectsAnimated/BoxSelect_1.png" type="Texture" id=7]
+[ext_resource path="res://Ham_Sprite/World/Title.png" type="Texture" id=8]
+[ext_resource path="res://Ham_Sprite/UI/portrait.png" type="Texture" id=9]
+[ext_resource path="res://Ham_Sprite/UI/Title.png" type="Texture" id=10]
+[ext_resource path="res://Ham_Sprite/Gods/God_DisciplineSacrifice.png" type="Texture" id=11]
+[ext_resource path="res://Ham_Sprite/EffectsAnimated/Enter_3.png" type="Texture" id=12]
+[ext_resource path="res://Ham_Sprite/Environment/SandFloor2.png" type="Texture" id=13]
+[ext_resource path="res://Ham_Sprite/Environment/SandFloor1.png" type="Texture" id=14]
+[ext_resource path="res://Ham_Sprite/EffectsAnimated/Enter_2.png" type="Texture" id=15]
+[ext_resource path="res://Ham_Sprite/Buttons/Button_UI.png" type="Texture" id=16]
+[ext_resource path="res://Ham_Sprite/Buttons/Button_UI_Pressed.png" type="Texture" id=17]
+[ext_resource path="res://button_inv_pressed.tres" type="StyleBox" id=18]
+[ext_resource path="res://Ham_Sprite/UI/Menu.png" type="Texture" id=19]
+[ext_resource path="res://Ham_Sprite/UI/Icon_SigilAstral.png" type="Texture" id=20]
+[ext_resource path="res://Ham_Sprite/UI/UI_Box1.png" type="Texture" id=21]
+[ext_resource path="res://Ham_Sprite/EffectsAnimated/Enter_1.png" type="Texture" id=22]
+[ext_resource path="res://Ham_Sprite/UI/Dice.png" type="Texture" id=23]
+[ext_resource path="res://Ham_Sprite/UI/Border.png" type="Texture" id=24]
+[ext_resource path="res://button_inv_hovered.tres" type="StyleBox" id=25]
+[ext_resource path="res://Ham_Sprite/UI/bg2.png" type="Texture" id=26]
+[ext_resource path="res://Ham_Sprite/UI/Icon_Class_Firedancer2.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/Lines.gd" type="Script" id=28]
+[ext_resource path="res://Ham_Sprite/UI/head.png" type="Texture" id=29]
+[ext_resource path="res://Ham_Sprite/UI/legs.png" type="Texture" id=30]
+[ext_resource path="res://MyFont3t.tres" type="DynamicFont" id=31]
+[ext_resource path="res://Ham_Sprite/World/Star_Blue.png" type="Texture" id=32]
+[ext_resource path="res://Ham_Sprite/UI/Start_Outlines.png" type="Texture" id=33]
+[ext_resource path="res://Ham_Sprite/UI/chest.png" type="Texture" id=34]
+[ext_resource path="res://Ham_Sprite/UI/arm.png" type="Texture" id=35]
+[ext_resource path="res://Ham_Sprite/UI/off.png" type="Texture" id=36]
+[ext_resource path="res://Ham_Sprite/UI/main.png" type="Texture" id=37]
+[ext_resource path="res://guy_alone.png" type="Texture" id=38]
+[ext_resource path="res://Ham_Sprite/UI/bg.png" type="Texture" id=39]
+
+[sub_resource type="StreamTexture" id=92]
+load_path = "res://.import/guy_alone.png-87df81c7cad3b9a94f554b8b32c6dfe2.stex"
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=78]
+
+[sub_resource type="StyleBoxEmpty" id=79]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=45]
+
+[sub_resource type="StyleBoxEmpty" id=41]
+
+[sub_resource type="StyleBoxEmpty" id=42]
+
+[sub_resource type="SpriteFrames" id=39]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=40]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=85]
+
+[sub_resource type="StyleBoxEmpty" id=86]
+
+[sub_resource type="StyleBoxEmpty" id=87]
+
+[sub_resource type="StyleBoxEmpty" id=88]
+
+[sub_resource type="StyleBoxEmpty" id=89]
+
+[sub_resource type="StyleBoxEmpty" id=80]
+
+[sub_resource type="StyleBoxEmpty" id=81]
+
+[sub_resource type="StyleBoxEmpty" id=82]
+
+[sub_resource type="StyleBoxEmpty" id=83]
+
+[sub_resource type="StyleBoxEmpty" id=84]
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxTexture" id=25]
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxTexture" id=27]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=28]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxEmpty" id=29]
+
+[sub_resource type="StyleBoxEmpty" id=30]
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxEmpty" id=43]
+
+[sub_resource type="StyleBoxEmpty" id=44]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+} ]
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Node2D
+
+
+var rng = RandomNumberGenerator.new()
+var rects = []
+var rects_faded = []
+
+func _ready():
+	rng.randomize()
+	var size = 65
+	for x in 20:
+		for y in 10:
+			var rect = ColorRect.new()
+			rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			add_child(rect)
+			rect.color = Color(0,0,0,1)
+			rect.rect_size.x = size
+			rect.rect_size.y = size
+			rect.rect_position.x = x*size
+			rect.rect_position.y = y*size
+			rects.append(rect)
+
+func _process(_delta):
+	for n in 3:
+		if rects_faded.size()>0:
+			var r = rng.randi_range(0,rects_faded.size()-1)
+			var rect = rects_faded[r]
+			rects_faded.erase(rect)
+			rect.queue_free()
+
+	for n in 6:
+		if rects.size()>0:
+			var r = rng.randi_range(0,rects.size()-1)
+			var rect = rects[r]
+			rects.erase(rect)
+			rects_faded.append(rect)
+			rect.color = Color(0,0,0,.7)
+
+		else:
+			if rects_faded.size()<=0:
+				queue_free()
+"
+
+[sub_resource type="StyleBoxTexture" id=46]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 32, 32 )
+modulate_color = Color( 0.466667, 0, 0.792157, 1 )
+
+[sub_resource type="StyleBoxTexture" id=47]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 32, 32 )
+modulate_color = Color( 0.466667, 0, 0.792157, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=48]
+
+[sub_resource type="StyleBoxEmpty" id=49]
+
+[sub_resource type="StyleBoxEmpty" id=52]
+
+[sub_resource type="StyleBoxEmpty" id=53]
+
+[sub_resource type="StyleBoxEmpty" id=56]
+
+[sub_resource type="StyleBoxEmpty" id=57]
+
+[sub_resource type="StyleBoxEmpty" id=60]
+
+[sub_resource type="StyleBoxEmpty" id=61]
+
+[sub_resource type="StyleBoxEmpty" id=64]
+
+[sub_resource type="StyleBoxEmpty" id=65]
+
+[sub_resource type="StyleBoxEmpty" id=68]
+
+[sub_resource type="StyleBoxEmpty" id=69]
+
+[sub_resource type="StyleBoxEmpty" id=72]
+
+[sub_resource type="StyleBoxEmpty" id=73]
+
+[sub_resource type="StyleBoxEmpty" id=76]
+
+[sub_resource type="StyleBoxEmpty" id=77]
+
+[sub_resource type="StyleBoxEmpty" id=90]
+
+[sub_resource type="StyleBoxEmpty" id=91]
+
+[node name="Start_Menu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Continent_Preview" type="Node2D" parent="."]
+position = Vector2( 152, 56 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.54902, 0.54902, 0.54902, 1 )
+position = Vector2( -88, 320 )
+rotation = -3.14159
+scale = Vector2( 1.5, -1.5 )
+texture = ExtResource( 8 )
+
+[node name="Bg" type="Sprite" parent="."]
+visible = false
+position = Vector2( 352, 256 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 38 )
+
+[node name="Portrait" type="Sprite" parent="."]
+visible = false
+position = Vector2( 279, 304 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="GuyAlone" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.498039, 0.490196, 0.490196, 1 )
+position = Vector2( 366, 241 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 92 )
+
+[node name="GuyAlone2" type="Sprite" parent="."]
+modulate = Color( 0.764706, 0.764706, 0.764706, 1 )
+position = Vector2( 336, 312 )
+texture = ExtResource( 39 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 23.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 31 )
+text = "Sitra Achra, Path of the Obelisk"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
+position = Vector2( 320, 304 )
+texture = ExtResource( 26 )
+
+[node name="Lines" type="Node2D" parent="."]
+script = ExtResource( 28 )
+
+[node name="Races" type="Node2D" parent="."]
+position = Vector2( 14, 8 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Races"]
+visible = false
+margin_left = 4.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 30.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[color=#a0a0a0][color=#ffff50]문[/color]화[/color]"
+text = "문화"
+
+[node name="Classes" type="Node2D" parent="."]
+position = Vector2( 14, 160 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Classes"]
+visible = false
+margin_left = 4.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 30.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[color=#a0a0a0][color=#ffff50]직[/color]업[/color]"
+text = "직업"
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Gods" type="Node2D" parent="."]
+position = Vector2( 14, 306 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gods"]
+visible = false
+margin_left = 4.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 30.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[color=#a0a0a0][color=#ffff50]신[/color]앙[/color]"
+text = "신앙"
+
+[node name="UiBox1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 528, 288 )
+texture = ExtResource( 21 )
+
+[node name="Description" type="RichTextLabel" parent="."]
+margin_left = 225.0
+margin_top = 11.0
+margin_right = 439.0
+margin_bottom = 488.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "You are a wanderer
+
+You come to the obelisk with great expectation
+
+Your strength is here"
+text = "You are a wanderer
+
+You come to the obelisk with great expectation
+
+Your strength is here"
+
+[node name="Description3" type="RichTextLabel" parent="."]
+margin_left = 475.0
+margin_top = 157.0
+margin_right = 620.0
+margin_bottom = 496.0
+bbcode_enabled = true
+bbcode_text = "albaz warrior of Dumuzi
+
+Your strength is here"
+text = "albaz warrior of Dumuzi
+
+Your strength is here"
+
+[node name="StartSprite" type="Sprite" parent="."]
+position = Vector2( 240, 56 )
+scale = Vector2( 2, 2 )
+
+[node name="Sprite" type="Sprite" parent="StartSprite"]
+visible = false
+show_behind_parent = true
+texture = ExtResource( 32 )
+
+[node name="Sprite2" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 32, 0 )
+texture = ExtResource( 14 )
+
+[node name="Sprite3" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 64, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite4" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 96, 0 )
+texture = ExtResource( 14 )
+
+[node name="Sprite5" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 128, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite6" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 160, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite7" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 192, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite8" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 224, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite9" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 256, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite10" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( 288, 0 )
+texture = ExtResource( 13 )
+
+[node name="Sprite11" type="Sprite" parent="StartSprite"]
+visible = false
+position = Vector2( -3.05176e-05, 3.8147e-05 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StartSprite"]
+visible = false
+position = Vector2( -3.05176e-05, 3.8147e-05 )
+frames = SubResource( 20 )
+frame = 2
+playing = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartSprite"]
+visible = false
+margin_left = 15.5
+margin_top = -22.0
+margin_right = 123.5
+margin_bottom = 18.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[color=#a0a0a0][color=#ffff50]TAB [/color]무작위[/color]"
+text = "TAB 무작위"
+
+[node name="Powers" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 411.0
+margin_right = 635.0
+margin_bottom = 427.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 78 )
+custom_styles/normal = SubResource( 79 )
+
+[node name="Label" type="Label" parent="Powers"]
+modulate = Color( 0.54902, 0.247059, 0.831373, 1 )
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 70.0
+margin_bottom = 14.0
+text = "능력"
+
+[node name="Armory" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 427.0
+margin_right = 635.0
+margin_bottom = 443.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 78 )
+custom_styles/normal = SubResource( 79 )
+
+[node name="Label" type="Label" parent="Armory"]
+modulate = Color( 0.780392, 0.403922, 0.0470588, 1 )
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 70.0
+margin_bottom = 14.0
+text = "무기고"
+
+[node name="Nemesis" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 443.0
+margin_right = 635.0
+margin_bottom = 459.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 78 )
+custom_styles/normal = SubResource( 79 )
+
+[node name="Label" type="Label" parent="Nemesis"]
+modulate = Color( 0.0470588, 0.611765, 0.780392, 1 )
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 70.0
+margin_bottom = 14.0
+text = "숙적"
+
+[node name="Continue" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 395.0
+margin_right = 635.0
+margin_bottom = 411.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Continue"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 130.0
+margin_bottom = 22.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[color=#a0a0a0][color=#ffff50]불[/color]러오기[/color]"
+text = "불러오기"
+
+[node name="Sprite" type="Sprite" parent="Continue"]
+visible = false
+position = Vector2( 16, 16 )
+texture = ExtResource( 27 )
+
+[node name="Pos_Continue" type="Node2D" parent="."]
+position = Vector2( 220, -138 )
+
+[node name="Button_Start" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 379.0
+margin_right = 635.0
+margin_bottom = 395.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button_Start"]
+modulate = Color( 0.776471, 0.788235, 0.27451, 1 )
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 14.0
+text = "시작"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Button_Start"]
+visible = false
+position = Vector2( 16, 16 )
+frames = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="Button_Start"]
+visible = false
+modulate = Color( 0.447059, 1, 0.529412, 1 )
+position = Vector2( 16, 16 )
+texture = ExtResource( 7 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Button_Start"]
+visible = false
+show_behind_parent = true
+position = Vector2( 16, 16 )
+frames = SubResource( 40 )
+frame = 1
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 498, 101 )
+scale = Vector2( 2, 2 )
+z_index = 50
+texture = ExtResource( 3 )
+
+[node name="armor_leg" type="Sprite" parent="Sprite"]
+
+[node name="armor_hand" type="Sprite" parent="Sprite"]
+
+[node name="armor_chest" type="Sprite" parent="Sprite"]
+
+[node name="armor_head" type="Sprite" parent="Sprite"]
+
+[node name="weapon_off" type="Sprite" parent="Sprite"]
+position = Vector2( 1, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 6 )
+
+[node name="weapon_main" type="Sprite" parent="Sprite"]
+texture = ExtResource( 6 )
+
+[node name="Button_Body_Sprite" type="Button" parent="Sprite"]
+margin_left = -19.0
+margin_top = -27.0
+margin_right = 15.0
+margin_bottom = 18.0
+custom_styles/hover = SubResource( 85 )
+custom_styles/pressed = SubResource( 86 )
+custom_styles/focus = SubResource( 87 )
+custom_styles/disabled = SubResource( 88 )
+custom_styles/normal = SubResource( 89 )
+
+[node name="Description2" type="RichTextLabel" parent="."]
+margin_left = 475.0
+margin_top = 145.0
+margin_right = 631.0
+margin_bottom = 249.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "name"
+text = "name"
+
+[node name="God" type="Sprite" parent="."]
+position = Vector2( 560, 101 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="Button_God_Sprite" type="Button" parent="God"]
+margin_left = -15.0
+margin_top = -23.0
+margin_right = 17.0
+margin_bottom = 16.0
+custom_styles/hover = SubResource( 80 )
+custom_styles/pressed = SubResource( 81 )
+custom_styles/focus = SubResource( 82 )
+custom_styles/disabled = SubResource( 83 )
+custom_styles/normal = SubResource( 84 )
+
+[node name="Pos_Continue2" type="Node2D" parent="."]
+position = Vector2( 344, 88 )
+
+[node name="Randomize" type="Button" parent="."]
+visible = false
+margin_left = 88.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Randomize"]
+visible = false
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 80.0
+margin_bottom = 21.0
+text = "무작위"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Randomize"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 23 )
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 4.0
+margin_top = 444.0
+margin_right = 36.0
+margin_bottom = 476.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Menu"]
+show_behind_parent = true
+position = Vector2( 16, 16 )
+texture = ExtResource( 19 )
+
+[node name="ClearUnlocks" type="Button" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 1252.0
+margin_top = 149.0
+margin_right = 1284.0
+margin_bottom = 181.0
+mouse_filter = 2
+custom_styles/hover = SubResource( 27 )
+custom_styles/pressed = SubResource( 28 )
+custom_styles/focus = SubResource( 29 )
+custom_styles/disabled = SubResource( 30 )
+custom_styles/normal = SubResource( 31 )
+text = "초기화"
+
+[node name="Sprite" type="Sprite" parent="ClearUnlocks"]
+visible = false
+show_behind_parent = true
+position = Vector2( 16, 16 )
+texture = ExtResource( 20 )
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 571.0
+margin_top = 459.0
+margin_right = 635.0
+margin_bottom = 475.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = SubResource( 43 )
+custom_styles/normal = SubResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Quit"]
+modulate = Color( 0.788235, 0.27451, 0.27451, 1 )
+margin_left = 6.0
+margin_top = 3.0
+margin_right = 46.0
+margin_bottom = 13.0
+text = "돌아가기"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select_Race" type="Node2D" parent="."]
+position = Vector2( 8, 88 )
+
+[node name="Sprite_Animated" type="AnimatedSprite" parent="Select_Race"]
+position = Vector2( 16, 16 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="Select_Class" type="Node2D" parent="."]
+position = Vector2( 57, 148 )
+
+[node name="Sprite_Animated2" type="AnimatedSprite" parent="Select_Class"]
+position = Vector2( 16, 16 )
+frames = SubResource( 9 )
+playing = true
+
+[node name="Select_God" type="Node2D" parent="."]
+position = Vector2( 88, 88 )
+
+[node name="Sprite_Animated2" type="AnimatedSprite" parent="Select_God"]
+position = Vector2( 16, 16 )
+frames = SubResource( 10 )
+playing = true
+
+[node name="FadeOut" type="Node2D" parent="."]
+script = SubResource( 8 )
+
+[node name="EnemySprites" type="Node2D" parent="."]
+position = Vector2( 192, 48 )
+
+[node name="Title" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 40 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
+[node name="version" type="Label" parent="."]
+visible = false
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+margin_left = 4.0
+margin_top = 9.0
+margin_right = 636.0
+margin_bottom = 25.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartOutlines" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 240 )
+texture = ExtResource( 33 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Border" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 320, 240 )
+texture = ExtResource( 24 )
+
+[node name="glory_progress" type="Control" parent="."]
+margin_left = -48.0
+margin_top = 48.0
+margin_right = -8.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="glory_progress"]
+visible = false
+modulate = Color( 0.568627, 0, 0.8, 1 )
+margin_left = 88.0
+margin_top = 410.0
+margin_right = 224.0
+margin_bottom = 450.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "다음 해금"
+text = "다음 해금"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar" type="ColorRect" parent="glory_progress"]
+margin_left = 86.0
+margin_top = 408.0
+margin_right = 588.0
+margin_bottom = 422.0
+color = Color( 0.180392, 0, 0.345098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="glory_progress/Bar"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 501.0
+margin_bottom = 13.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="meter" type="ColorRect" parent="glory_progress"]
+margin_left = 87.0
+margin_top = 409.0
+margin_right = 87.0
+margin_bottom = 421.0
+color = Color( 0.0117647, 0.0117647, 0.160784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GloryButton" type="Button" parent="glory_progress"]
+margin_left = 86.0
+margin_top = 408.0
+margin_right = 588.0
+margin_bottom = 422.0
+custom_styles/hover = SubResource( 46 )
+custom_styles/pressed = SubResource( 47 )
+custom_styles/focus = SubResource( 48 )
+custom_styles/normal = SubResource( 49 )
+
+[node name="glory" type="RichTextLabel" parent="glory_progress"]
+margin_left = 89.0
+margin_top = 411.0
+margin_right = 584.0
+margin_bottom = 423.0
+mouse_filter = 2
+bbcode_enabled = true
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 273.0
+margin_bottom = 26.0
+text = "문화, 직업, 신앙을 선택하세요..."
+
+[node name="P1" type="Button" parent="."]
+margin_left = 558.0
+margin_top = 29.0
+margin_right = 574.0
+margin_bottom = 45.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 52 )
+custom_styles/normal = SubResource( 53 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="P1"]
+modulate = Color( 0.858824, 0.882353, 0.388235, 1 )
+margin_left = -12.0
+margin_top = 4.0
+margin_right = 28.0
+margin_bottom = 44.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[center]I"
+text = "I"
+
+[node name="P2" type="Button" parent="."]
+margin_left = 574.0
+margin_top = 29.0
+margin_right = 590.0
+margin_bottom = 45.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 56 )
+custom_styles/normal = SubResource( 57 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="P2"]
+modulate = Color( 0.858824, 0.882353, 0.388235, 1 )
+margin_left = -12.0
+margin_top = 4.0
+margin_right = 28.0
+margin_bottom = 44.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[center]II"
+text = "II"
+
+[node name="P3" type="Button" parent="."]
+margin_left = 590.0
+margin_top = 29.0
+margin_right = 606.0
+margin_bottom = 45.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 60 )
+custom_styles/normal = SubResource( 61 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="P3"]
+modulate = Color( 0.858824, 0.882353, 0.388235, 1 )
+margin_left = -12.0
+margin_top = 4.0
+margin_right = 28.0
+margin_bottom = 44.0
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[center]III"
+text = "III"
+
+[node name="bodybuttons" type="Node2D" parent="."]
+position = Vector2( 256, -8 )
+z_index = 51
+
+[node name="head" type="Button" parent="bodybuttons"]
+margin_left = 206.0
+margin_top = 37.0
+margin_right = 222.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 60 )
+custom_styles/normal = SubResource( 61 )
+
+[node name="headsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 206, 37 )
+texture = ExtResource( 29 )
+centered = false
+
+[node name="off" type="Button" parent="bodybuttons"]
+margin_left = 238.0
+margin_top = 37.0
+margin_right = 254.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 64 )
+custom_styles/normal = SubResource( 65 )
+
+[node name="main" type="Button" parent="bodybuttons"]
+margin_left = 222.0
+margin_top = 37.0
+margin_right = 238.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 68 )
+custom_styles/normal = SubResource( 69 )
+
+[node name="arm" type="Button" parent="bodybuttons"]
+margin_left = 254.0
+margin_top = 37.0
+margin_right = 270.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 68 )
+custom_styles/normal = SubResource( 69 )
+
+[node name="arm2" type="Button" parent="bodybuttons"]
+margin_left = 296.0
+margin_top = -239.0
+margin_right = 312.0
+margin_bottom = -223.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 68 )
+custom_styles/normal = SubResource( 69 )
+
+[node name="chest" type="Button" parent="bodybuttons"]
+margin_left = 270.0
+margin_top = 37.0
+margin_right = 286.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 72 )
+custom_styles/normal = SubResource( 73 )
+
+[node name="leg" type="Button" parent="bodybuttons"]
+margin_left = 286.0
+margin_top = 37.0
+margin_right = 302.0
+margin_bottom = 53.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 25 )
+custom_styles/focus = SubResource( 76 )
+custom_styles/normal = SubResource( 77 )
+
+[node name="offsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 238, 37 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="mainsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 222, 37 )
+texture = ExtResource( 37 )
+centered = false
+
+[node name="armsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 254, 37 )
+texture = ExtResource( 35 )
+centered = false
+
+[node name="chestsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 270, 37 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="legsprite" type="Sprite" parent="bodybuttons"]
+position = Vector2( 286, 37 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="TextEdit" type="LineEdit" parent="."]
+modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
+margin_left = 465.0
+margin_top = 9.0
+margin_right = 614.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 90 )
+custom_styles/normal = SubResource( 91 )
+text = "검색..."
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+
+[node name="ColorRect2" type="ColorRect" parent="TextEdit"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 151.0
+margin_bottom = 15.0
+mouse_filter = 2
+color = Color( 0.2, 0.0862745, 0.172549, 1 )
+
+[connection signal="mouse_entered" from="Powers" to="." method="_on_Powers_mouse_entered"]
+[connection signal="mouse_exited" from="Powers" to="." method="_on_Powers_mouse_exited"]
+[connection signal="pressed" from="Powers" to="." method="_on_Powers_pressed"]
+[connection signal="mouse_entered" from="Armory" to="." method="_on_Armory_mouse_entered"]
+[connection signal="mouse_exited" from="Armory" to="." method="_on_Armory_mouse_exited"]
+[connection signal="pressed" from="Armory" to="." method="_on_Armory_pressed"]
+[connection signal="mouse_entered" from="Nemesis" to="." method="_on_Nemesis_mouse_entered"]
+[connection signal="mouse_exited" from="Nemesis" to="." method="_on_Nemesis_mouse_exited"]
+[connection signal="pressed" from="Nemesis" to="." method="_on_Nemesis_pressed"]
+[connection signal="mouse_entered" from="Continue" to="." method="_on_Continue_mouse_entered"]
+[connection signal="mouse_exited" from="Continue" to="." method="_on_Continue_mouse_exited"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Button_Start" to="." method="_on_Button_Start_mouse_entered"]
+[connection signal="mouse_exited" from="Button_Start" to="." method="_on_Button_Start_mouse_exited"]
+[connection signal="pressed" from="Button_Start" to="." method="_on_Button_Start_pressed"]
+[connection signal="mouse_entered" from="Sprite/Button_Body_Sprite" to="." method="_on_Button_Body_Sprite_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite/Button_Body_Sprite" to="." method="_on_Button_Body_Sprite_mouse_exited"]
+[connection signal="mouse_entered" from="God/Button_God_Sprite" to="." method="_on_Button_God_Sprite_mouse_entered"]
+[connection signal="mouse_exited" from="God/Button_God_Sprite" to="." method="_on_Button_God_Sprite_mouse_exited"]
+[connection signal="mouse_entered" from="Randomize" to="." method="_on_Randomize_mouse_entered"]
+[connection signal="mouse_exited" from="Randomize" to="." method="_on_Randomize_mouse_exited"]
+[connection signal="pressed" from="Randomize" to="." method="_on_Randomize_pressed"]
+[connection signal="mouse_entered" from="Menu" to="." method="_on_Menu_mouse_entered"]
+[connection signal="mouse_exited" from="Menu" to="." method="_on_Menu_mouse_exited"]
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="mouse_entered" from="ClearUnlocks" to="." method="_on_Menu_mouse_entered"]
+[connection signal="mouse_exited" from="ClearUnlocks" to="." method="_on_Menu_mouse_exited"]
+[connection signal="pressed" from="ClearUnlocks" to="." method="_on_ClearUnlocks_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_Quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="mouse_entered" from="glory_progress/GloryButton" to="." method="_on_GloryButton_mouse_entered"]
+[connection signal="mouse_exited" from="glory_progress/GloryButton" to="." method="_on_GloryButton_mouse_exited"]
+[connection signal="pressed" from="glory_progress/GloryButton" to="." method="_on_GloryButton_pressed"]
+[connection signal="mouse_entered" from="P1" to="." method="_on_P1_mouse_entered"]
+[connection signal="mouse_exited" from="P1" to="." method="_on_P1_mouse_exited"]
+[connection signal="mouse_entered" from="P2" to="." method="_on_P2_mouse_entered"]
+[connection signal="mouse_exited" from="P2" to="." method="_on_P2_mouse_exited"]
+[connection signal="mouse_entered" from="P3" to="." method="_on_P3_mouse_entered"]
+[connection signal="mouse_exited" from="P3" to="." method="_on_P3_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/head" to="." method="_on_head_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/head" to="." method="_on_head_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/off" to="." method="_on_off_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/off" to="." method="_on_off_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/main" to="." method="_on_main_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/main" to="." method="_on_main_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/arm" to="." method="_on_arm_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/arm" to="." method="_on_arm_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/arm2" to="." method="_on_arm2_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/arm2" to="." method="_on_arm2_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/chest" to="." method="_on_chest_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/chest" to="." method="_on_chest_mouse_exited"]
+[connection signal="mouse_entered" from="bodybuttons/leg" to="." method="_on_leg_mouse_entered"]
+[connection signal="mouse_exited" from="bodybuttons/leg" to="." method="_on_leg_mouse_exited"]
+[connection signal="focus_entered" from="TextEdit" to="." method="_on_TextEdit_focus_entered"]
+[connection signal="focus_exited" from="TextEdit" to="." method="_on_TextEdit_focus_exited"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
