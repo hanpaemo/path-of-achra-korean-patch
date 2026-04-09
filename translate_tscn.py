@@ -245,6 +245,10 @@ TSCN_TRANSLATIONS = [
     ('text = "Strength"', 'text = "힘"'),
     ('text = "Dexterity"', 'text = "민첩"'),
     ('text = "Willpower"', 'text = "의지"'),
+    ('bbcode_text = "[right]5 points available"', 'bbcode_text = "[right]5 포인트 남음"'),
+    ('text = "5 points available"', 'text = "5 포인트 남음"'),
+    ('bbcode_text = "Prestige class unlocked!\n\nYou are now a Champion"', 'bbcode_text = "상위 직업 해금!\n\n당신은 이제 챔피언입니다"'),
+    ('text = "Prestige class unlocked!\n\nYou are now a Champion"', 'text = "상위 직업 해금!\n\n당신은 이제 챔피언입니다"'),
 
     # ── UI_Prestige.tscn ──
     ('text = "Make thy choice..."', 'text = "선택하라..."'),

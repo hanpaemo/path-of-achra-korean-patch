@@ -1,8 +1,8 @@
-# Path of Achra 한글패치
+# Path of Achra 한국어 패치
 
-![Path of Achra 한글패치](1.jpg)
+![Path of Achra 한국어 패치](1.jpg)
 
-**Path of Achra**의 비공식 한글패치입니다.
+**Path of Achra**의 비공식 한국어 패치입니다.
 
 - **게임**: [Path of Achra](https://store.steampowered.com/app/2128270/Path_of_Achra/) (Steam)
 - **엔진**: Godot 3.5.2

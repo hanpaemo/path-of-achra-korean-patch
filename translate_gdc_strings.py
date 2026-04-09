@@ -1245,6 +1245,14 @@ TRANSLATIONS = [
     # ── UI_Traits_Basic.gd — random power tooltip ──
     ("\"[color=#c0c0c0][[color=#ffff50]0[/color]] Learn a new random power from available elements\\n\\nIf at power limit, randomly level up a known power[/color]\"",
      "\"[color=#c0c0c0][[color=#ffff50]0[/color]] 사용 가능한 원소에서 새 능력 무작위 습득\\n\\n능력 한도 시 보유 능력 무작위 레벨업[/color]\""),
+    (" + \" [color=#808080]element[/color]\"", " + \" [color=#808080]원소[/color]\""),
+    ("stringa += \"[color=#808080]Unknown[/color]\"", "stringa += \"[color=#808080]미습득[/color]\""),
+    (
+        "stringa += \"\\n\\n[color=#808080]Costs [color=#ffff00]\"\n\t\t\tstringa += str(trait.cost)\n\t\t\tstringa += \"[/color] to \"\n\t\t\tif Global.Player.abilities.has(trait.title):\n\t\t\t\tstringa += \"level up[/color]\"\n\t\t\telse:\n\t\t\t\tstringa += \"learn[/color]\"",
+        "stringa += \"\\n\\n[color=#808080]비용 [color=#ffff00]\"\n\t\t\tstringa += str(trait.cost)\n\t\t\tstringa += \"[/color] / \"\n\t\t\tif Global.Player.abilities.has(trait.title):\n\t\t\t\tstringa += \"강화[/color]\"\n\t\t\telse:\n\t\t\t\tstringa += \"습득[/color]\"",
+    ),
+    ("stringa += \"[color=#707070]Acquire powers from 3 elements...[/color]\"", "stringa += \"[color=#707070]3개 원소에서 능력을 습득하라...[/color]\""),
+    ("stringa += \" [color=#c0c0c0]points available\"", "stringa += \" [color=#c0c0c0]포인트 남음\""),
 
     # ── Process_Fight.gd / RouterEvents_OnHit.gd — combat log msg ──
     ('msg = "Attack"', 'msg = "공격"'),

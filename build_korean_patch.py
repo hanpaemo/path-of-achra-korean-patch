@@ -25,12 +25,13 @@ MANIFEST_NAME = "build-manifest.json"
 PCK_ALIGNMENT = 16
 COPY_CHUNK_SIZE = 1024 * 1024
 
-SCALAR_FIELDS = {
+# Only translate user-facing text. Internal identifiers and enums such as
+# `title` and `Element` must remain in their shipped English form because
+# gameplay scripts match on those exact values.
+TRANSLATABLE_SCALAR_FIELDS = {
     "Description",
     "Description_Unit",
-    "Element",
     "Name",
-    "book",
     "brief",
     "description",
     "description_short",
@@ -46,7 +47,6 @@ SCALAR_FIELDS = {
     "taunt",
     "text",
     "text_icon",
-    "title",
     "use_recharge_type",
 }
 LIST_FIELDS = {"phrase", "tags"}
@@ -374,7 +374,7 @@ def build_json_replacements(
                 continue
 
             for field, value in list(entry.items()):
-                if field in SCALAR_FIELDS and isinstance(value, str) and should_keep_string(value):
+                if field in TRANSLATABLE_SCALAR_FIELDS and isinstance(value, str) and should_keep_string(value):
                     key = occurrence_key(table_name, entry_id, field, "")
                     translated, source = lookup_translation(key, value, occurrence_overrides, glossary_overrides)
                     if translated is not None and translated != value:

@@ -2,3 +2,7 @@ output/
 build/
 __pycache__/
 *.pyc
+translation/source/
+translation/ko/font.ttf
+translation/ko/*.bak
+translation/ko/fix_tile_term.py
