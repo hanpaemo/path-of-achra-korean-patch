@@ -26,7 +26,7 @@ PCK_ALIGNMENT = 16
 COPY_CHUNK_SIZE = 1024 * 1024
 
 # Only translate user-facing text. Internal identifiers and enums such as
-# `title` and `Element` must remain in their shipped English form because
+# `title`, `Element`, and invoke recharge enums must remain in their shipped English form because
 # gameplay scripts match on those exact values.
 TRANSLATABLE_SCALAR_FIELDS = {
     "Description",
@@ -47,9 +47,37 @@ TRANSLATABLE_SCALAR_FIELDS = {
     "taunt",
     "text",
     "text_icon",
-    "use_recharge_type",
 }
 LIST_FIELDS = {"phrase", "tags"}
+PROTECTED_SCALAR_FIELDS = {
+    "title",
+    "Title",
+    "element",
+    "Element",
+    "reference",
+    "book",
+    "sprite",
+    "animation",
+    "formsprite",
+    "use_recharge_type",
+    "use_lose",
+    "sound",
+    "effect_sprite",
+    "type",
+    "alliance",
+}
+PROTECTED_FIELD_OVERRIDES = {
+    ("Table_Verses", "book"): {"footer_embedded"},
+}
+
+VERSE_BOOK_LABELS = {
+    "achra": "아크라의 시편, 발췌",
+    "king": "왕의 현상록, 발췌",
+    "prayer": "잃어버린 기도문, 발췌",
+    "history": "파멸한 연대기, 발췌",
+    "dune": "사구해의 권면, 발췌",
+    "imp": "재상 임프의 점토판, 발췌",
+}
 
 FONT_AUTO_CANDIDATES = (
     Path("font.ttf"),
@@ -123,6 +151,7 @@ GDC_REPLACE_MAP = {
     "res://ToolSpawnUnit.gdc": "ToolSpawnUnit.gdc",
     "res://RouterEvents_OnApplyBuff.gdc": "RouterEvents_OnApplyBuff.gdc",
     "res://RouterEvents_OnRemoveBuff.gdc": "RouterEvents_OnRemoveBuff.gdc",
+    "res://RouterEvents_OnTeleport.gdc": "RouterEvents_OnTeleport.gdc",
     "res://Scenes/Tile.gdc": "Tile.gdc",
     "res://Scenes/UI_Log.gdc": "UI_Log.gdc",
     "res://LRacesClasses.gdc": "LRacesClasses.gdc",
@@ -316,6 +345,65 @@ def lookup_translation(
     return None, None
 
 
+def postprocess_verse_entries(payload: dict[str, object]) -> int:
+    changes = 0
+    for entry in payload.values():
+        if not isinstance(entry, dict):
+            continue
+        book = entry.get("book")
+        text = entry.get("text")
+        if not isinstance(book, str) or not isinstance(text, str):
+            continue
+
+        label = VERSE_BOOK_LABELS.get(book)
+        if label is None:
+            continue
+
+        footer = f"\n\n\n\n[color=#707070]~ {label} ~[/color]"
+        if footer not in text:
+            entry["text"] = text + footer
+            changes += 1
+
+        if entry.get("book") != "footer_embedded":
+            entry["book"] = "footer_embedded"
+            changes += 1
+
+    return changes
+
+
+def validate_protected_fields(
+    table_name: str,
+    original_payload: dict[str, object],
+    payload: dict[str, object],
+) -> list[str]:
+    errors: list[str] = []
+
+    for entry_id, entry in payload.items():
+        if not isinstance(entry, dict):
+            continue
+        original_entry = original_payload.get(entry_id)
+        if not isinstance(original_entry, dict):
+            continue
+
+        for field in PROTECTED_SCALAR_FIELDS:
+            original_value = original_entry.get(field)
+            value = entry.get(field)
+            if not isinstance(original_value, str) or not isinstance(value, str):
+                continue
+            if original_value == value:
+                continue
+
+            allowed = PROTECTED_FIELD_OVERRIDES.get((table_name, field), set())
+            if value in allowed:
+                continue
+
+            errors.append(
+                f"{table_name}:{entry_id}:{field} changed from {original_value!r} to {value!r}"
+            )
+
+    return errors
+
+
 def iter_pck_entries(path: Path) -> tuple[PckHeader, list[PckEntry]]:
     with path.open("rb") as handle:
         magic = handle.read(4)
@@ -365,6 +453,7 @@ def build_json_replacements(
         payload = json.loads(file_path.read_text(encoding="utf-8"))
         if not isinstance(payload, dict):
             continue
+        original_payload = json.loads(json.dumps(payload, ensure_ascii=False))
 
         file_changed = False
         file_changes = 0
@@ -402,6 +491,19 @@ def build_json_replacements(
                     if list_changed:
                         entry[field] = new_list
                         file_changed = True
+
+        if table_name == "Table_Verses":
+            verse_changes = postprocess_verse_entries(payload)
+            if verse_changes:
+                file_changed = True
+                file_changes += verse_changes
+
+        protected_errors = validate_protected_fields(table_name, original_payload, payload)
+        if protected_errors:
+            preview = "\n".join(protected_errors[:10])
+            raise ValueError(
+                f"Protected internal fields changed during translation for {table_name}:\n{preview}"
+            )
 
         if not file_changed:
             continue

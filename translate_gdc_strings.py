@@ -69,6 +69,7 @@ FILES_TO_TRANSLATE = {
     "res://RouterEvents_OnPickup.gdc": "RouterEvents_OnPickup.gd",
     "res://RouterEvents_OnIntervention.gdc": "RouterEvents_OnIntervention.gd",
     "res://RouterEvents_OnShrugOff.gdc": "RouterEvents_OnShrugOff.gd",
+    "res://RouterEvents_OnTeleport.gdc": "RouterEvents_OnTeleport.gd",
     "res://StatePlayerSheet.gdc": "StatePlayerSheet.gd",
     "res://Scenes/UI_Prestige.gdc": "UI_Prestige.gd",
     "res://Scenes/UI_God.gdc": "UI_God.gd",
@@ -106,6 +107,46 @@ FILES_TO_TRANSLATE = {
 
 # These are applied via simple string replacement in quoted strings only
 TRANSLATIONS = [
+    (
+        "class_name invoker",
+        """class_name invoker
+
+static func display_recharge_label(label):
+\treturn {
+\t\t"adjacent ally damaged by enemy": "인접 아군이 적에게 피해를 입을 때",
+\t\t"adjacent attack": "인접 공격 시",
+\t\t"adjacent enemy": "인접 적 존재 시",
+\t\t"ant kill": "개미 처치 시",
+\t\t"attack": "공격 시",
+\t\t"attack bare fist": "맨손 공격 시",
+\t\t"attacked adjacent": "인접 공격 받을 시",
+\t\t"awe": "야자타 시전 시",
+\t\t"block": "방어 시",
+\t\t"damaged by enemy": "적에게 피해 받을 시",
+\t\t"divine intervention": "신성 개입 시",
+\t\t"dodge": "회피 시",
+\t\t"dudar step": "부식 적 이동 시",
+\t\t"enemy death": "적 사망 시",
+\t\t"enemy death adjacent": "인접 적 사망 시",
+\t\t"enemy death in range": "범위 내 적 사망 시",
+\t\t"game turn none adjacent": "인접 적 없는 게임 턴",
+\t\t"gilded": "금빛 시체 소환 시",
+\t\t"glory": "영광 상승 시",
+\t\t"kill": "처치 시",
+\t\t"kill on grass": "성초 위에서 처치 시",
+\t\t"kill while bloodrage": "피의 광분 상태에서 처치 시",
+\t\t"meditate": "명상 시",
+\t\t"moc": "프로소 목 시전 시",
+\t\t"new area": "새 구역 진입 시",
+\t\t"pickup": "아이템 습득 시",
+\t\t"stand still": "제자리 유지 시",
+\t\t"stand still adjacent": "인접한 채 제자리 유지 시",
+\t\t"step adjacent": "적에게 인접 이동 시",
+\t\t"step not adjacent": "비인접 이동 시",
+\t\t"teleport": "순간이동 시",
+\t\t"transform item": "아이템 변환 시",
+\t}.get(label, label)"""
+    ),
     # ── Cycle names (ToolCycler.gd) ──
     ("First[/color] Cycle of [color=#c09050]Humility", "첫 번째[/color] 겸손의 [color=#c09050]순환"),
     ("Second[/color] Cycle of [color=#9050c0]Degradation", "두 번째[/color] 타락의 [color=#9050c0]순환"),
@@ -1253,6 +1294,169 @@ TRANSLATIONS = [
     ),
     ("stringa += \"[color=#707070]Acquire powers from 3 elements...[/color]\"", "stringa += \"[color=#707070]3개 원소에서 능력을 습득하라...[/color]\""),
     ("stringa += \" [color=#c0c0c0]points available\"", "stringa += \" [color=#c0c0c0]포인트 남음\""),
+    ('mod_info.string.append("Attune +" + str(int(increase)))', 'mod_info.string.append("동조 +" + str(int(increase)))'),
+
+    # ── Verse.gd — source labels ──
+    ("~ verses of Achra, fragment ~", "~ 아크라의 시편, 발췌 ~"),
+    ("~ phenomenology of the King, fragment ~", "~ 왕의 현상록, 발췌 ~"),
+    ("~ lost prayers, fragment ~", "~ 잃어버린 기도문, 발췌 ~"),
+    ("~ devastated Histories, fragment ~", "~ 파멸한 연대기, 발췌 ~"),
+    ("~ dune sea exhortations, fragment ~", "~ 사구해의 권면, 발췌 ~"),
+    ("~ tablet of the vizier-imp, fragment ~", "~ 재상 임프의 점토판, 발췌 ~"),
+
+    # ── RouterEvents_OnLearn.gd — hardcoded trait names ──
+    ('"[color=#ff1010]Gore Tide[/color]! [color=#707070]+50 체력[/color]"', '"[color=#ff1010]피의 밀물[/color]! [color=#707070]+50 체력[/color]"'),
+    ('"[color=#a0a000]Kuga[/color]! [color=#707070]+50 체력[/color]"', '"[color=#a0a000]쿠가[/color]! [color=#707070]+50 체력[/color]"'),
+    ('"[color=#70ff00]Merzot[/color]! [color=#707070]+50 체력[/color]"', '"[color=#70ff00]메르조트[/color]! [color=#707070]+50 체력[/color]"'),
+    ('"[color=#00a000]Life Chant[/color]! [color=#707070]+50 체력[/color]"', '"[color=#00a000]생명의 노래[/color]! [color=#707070]+50 체력[/color]"'),
+
+    # ── Process_Text.gd — stagger overlapping floating text ──
+    (
+        """extends Node
+
+
+var rng = RandomNumberGenerator.new()
+var drift = 20
+var game = null
+var Player = null
+
+func _ready():
+\trng.randomize()
+
+func spawn_text_popup(apoint, atext, color):
+\tif ToolSettings.settings_data.floating_text == true:
+\t\tvar bpoint = apoint
+\t\tbpoint.x += rng.randi_range(drift * - 1, drift)
+\t\tbpoint.y += rng.randi_range((drift * - 1) * 3, 0)
+\t\tvar popup = Global.TextPopup.instance()
+\t
+\t\tpopup.modulate = Color(1, 1, 1, 1)
+\t
+\t\tgame.add_child(popup)
+\t\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\t\tpopup.position = bpoint
+
+func spawn_speech_popup(apoint, atext, color):
+\t
+\t\tvar bpoint = apoint
+\t\tbpoint.x += rng.randi_range(drift * - 1, drift)
+\t\tbpoint.y += rng.randi_range((drift * - 1) * 3, 0)
+\t\tvar popup = Global.TextPopup.instance()
+\t
+\t\tpopup.modulate = Color(1, 1, 1, 1)
+\t\tpopup.make_speech()
+\t
+\t\tgame.add_child(popup)
+\t\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\t\tpopup.position = bpoint
+\t
+func spawn_text_popup_context(apoint, atext, color, context):
+\tvar bpoint = apoint
+\tbpoint.x += rng.randi_range(drift * - 1, drift)
+\tbpoint.y += rng.randi_range((drift * - 1) * 3, 0)
+\tvar popup = Global.TextPopup.instance()
+\tcontext.add_child(popup)
+\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\tpopup.position = bpoint
+""",
+        """extends Node
+
+
+var rng = RandomNumberGenerator.new()
+var drift = 20
+var game = null
+var Player = null
+var popup_stack_window_ms = 180
+var popup_stack_offset_y = 12
+var popup_stack_offset_x = 6
+var popup_stack_max = 5
+var popup_slots = {}
+
+func _ready():
+\trng.randomize()
+
+func popup_stack_index(apoint):
+\tvar key = str(int(round(apoint.x / 16.0))) + "," + str(int(round(apoint.y / 16.0)))
+\tvar now = OS.get_ticks_msec()
+\tif popup_slots.has(key) == false:
+\t\tpopup_slots[key] = {"count": 0, "time": now}
+\tvar slot = popup_slots[key]
+\tif now - int(slot["time"]) > popup_stack_window_ms:
+\t\tslot["count"] = 0
+\tslot["time"] = now
+\tslot["count"] = min(int(slot["count"]) + 1, popup_stack_max)
+\tpopup_slots[key] = slot
+\treturn int(slot["count"]) - 1
+
+func popup_point(apoint):
+\tvar bpoint = apoint
+\tvar stack = popup_stack_index(apoint)
+\tbpoint.x += rng.randi_range(drift * - 1, drift)
+\tbpoint.y += rng.randi_range((drift * - 1) * 3, 0)
+\tbpoint.y -= stack * popup_stack_offset_y
+\tif stack > 0:
+\t\tvar direction = -1 if stack % 2 == 1 else 1
+\t\tbpoint.x += direction * popup_stack_offset_x * int((stack + 1) / 2)
+\treturn bpoint
+
+func spawn_text_popup(apoint, atext, color):
+\tif ToolSettings.settings_data.floating_text == true:
+\t\tvar bpoint = popup_point(apoint)
+\t\tvar popup = Global.TextPopup.instance()
+\t
+\t\tpopup.modulate = Color(1, 1, 1, 1)
+\t
+\t\tgame.add_child(popup)
+\t\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\t\tpopup.position = bpoint
+
+func spawn_speech_popup(apoint, atext, color):
+\t
+\t\tvar bpoint = popup_point(apoint)
+\t\tvar popup = Global.TextPopup.instance()
+\t
+\t\tpopup.modulate = Color(1, 1, 1, 1)
+\t\tpopup.make_speech()
+\t
+\t\tgame.add_child(popup)
+\t\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\t\tpopup.position = bpoint
+\t
+func spawn_text_popup_context(apoint, atext, color, context):
+\tvar bpoint = popup_point(apoint)
+\tvar popup = Global.TextPopup.instance()
+\tcontext.add_child(popup)
+\tpopup.get_node("Label").bbcode_text = color + atext + "[/color]"
+\tpopup.position = bpoint
+""",
+    ),
+
+    # ── RouterEvents_OnApplyBuff.gd — show applied stack count in popup ──
+    (
+        """static func text_popup(target, name, color):
+	
+	var apoint = target.get_global_position()
+	var atext = "" + str(name)
+
+	ProcessText.spawn_text_popup(apoint, atext, color)""",
+        """static func text_popup(target, name, color, duration = 0):
+	
+	var apoint = target.get_global_position()
+	var atext = "" + str(name)
+	if int(duration) > 0:
+		atext += "+" + str(int(duration))
+
+	ProcessText.spawn_text_popup(apoint, atext, color)""",
+    ),
+    ("text_popup(target, name, color)", "text_popup(target, name, color, duration)"),
+
+    # ── RouterEvents_OnTeleport.gd — teleport popup/log ──
+    ('"msg": "Teleporting"', '"msg": "순간이동"'),
+    ('var atext = "Teleport"', 'var atext = "순간이동"'),
+    ('stringa = name_a + " [color=#a030b0]teleport[/color]!"', 'stringa = "당신이 [color=#a030b0]순간이동[/color]!"'),
+    ('stringa = name_a + " [color=#a030b0]teleports[/color]!"', 'stringa = name_a + "(이)가 [color=#a030b0]순간이동[/color]!"'),
+    ('ToolMessageCreator.add_message("[color=#707070]", textstrip.strip_bbcode(dict[invoke].name) + " +" + str(int(dict[invoke].use_gain)) + "  [color=#707070]" + label + "[/color]")',
+     'ToolMessageCreator.add_message("[color=#707070]", textstrip.strip_bbcode(dict[invoke].name) + " +" + str(int(dict[invoke].use_gain)) + "  [color=#707070]" + display_recharge_label(label) + "[/color]")'),
 
     # ── Process_Fight.gd / RouterEvents_OnHit.gd — combat log msg ──
     ('msg = "Attack"', 'msg = "공격"'),

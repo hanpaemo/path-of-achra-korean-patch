@@ -631,7 +631,7 @@ Astral,,11,Table_Traits:Ara:Element | Table_Traits:Weirding:Element | Table_Trai
 Astral Knight,,1,Table_Allies:astralknight:name
 Astropede,,1,Table_Enemies:astropede:name
 Astrophyte,,1,Table_Allies:Astrophyte:name
-Attune,,1,Table_Buffs:Attune:name
+Attune,동조,1,Table_Buffs:Attune:name
 "Authority over serpents is renowned in the dawn marshes, where monstrous Acroserpents are bent to the will of Keliots
 
 Legend tells of a reptilian wanderer who once passed through the marshes, strangely colored, from the ancient Saurian clan, whose step mesmerized the serpents underfoot
@@ -6238,7 +6238,7 @@ Phantasm,,1,Table_Allies:phantasm:name
 Pilgrim! Who rules thy fear?,,1,Table_Enemies:horrorgolem:phrase[0]
 Pilgrim! Wretchedness awaits!,,1,Table_Enemies:basilisk:phrase[0]
 Plague,,1,Table_Buffs:Plague:name
-Poise,,1,Table_Buffs:Poise:name
+Poise,평정,1,Table_Buffs:Poise:name
 Poison,,11,Table_Buffs:Poison:name | Table_Traits:PoisonPalm:Element | Table_Traits:PoisonSkin:Element | Table_Traits:Morbumancy:Element | Table_Traits:Plaguedrinking:Element
 "Praise (d)! 
 
