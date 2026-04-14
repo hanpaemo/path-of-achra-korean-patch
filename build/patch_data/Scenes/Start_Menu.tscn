@@ -554,8 +554,8 @@ margin_right = 130.0
 margin_bottom = 22.0
 mouse_filter = 2
 bbcode_enabled = true
-bbcode_text = "[color=#a0a0a0][color=#ffff50]불[/color]러오기[/color]"
-text = "불러오기"
+bbcode_text = "[color=#a0a0a0]저장 [color=#ffff50]불[/color]러오기[/color]"
+text = "저장 불러오기"
 
 [node name="Sprite" type="Sprite" parent="Continue"]
 visible = false

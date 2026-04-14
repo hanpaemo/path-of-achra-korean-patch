@@ -11,7 +11,7 @@ func _ready():
 	var stringa = "[color=#ffff50]" + str(Global.Player.get_name()) + "[/color] " + StatePlayerSheet.title_race + " " + StatePlayerSheet.title_class + " [color=#c0c0c0]-[/color] " + StatePlayerSheet.God.name
 	stringa += "\n\n"
 	stringa += "[color=#707070]"
-	stringa += "[color=#ff5050]" + str(StatePlayerSheet.score_data.game_turns) + "[/color] 게임 턴 경과"
+	stringa += "[color=#ff5050]" + str(StatePlayerSheet.score_data.game_turns) + "[/color] game turns have passed"
 	stringa += "\n\n"
 	stringa += "[color=#ffff00]" + str(StatePlayerSheet.score_data.highest_damage) + "[/color]"
 	if str(StatePlayerSheet.score_data.highest_damage_type) != "0":

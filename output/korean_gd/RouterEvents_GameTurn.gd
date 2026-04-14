@@ -70,7 +70,7 @@ static func check(unit):
 					"name": "remove_buff", 
 					"target": unit, 
 					"buff": buff, 
-					"msg": "의지력 회복"
+					"msg": "Willpower recovery"
 		}
 							ProcessQueue.add_effect(action)
 							
@@ -87,7 +87,7 @@ static func check(unit):
 					"name": "remove_buff", 
 					"target": unit, 
 					"buff": buff, 
-					"msg": "자연 회복"
+					"msg": "Natural recovery"
 					}
 		
 						ProcessQueue.add_effect(action)

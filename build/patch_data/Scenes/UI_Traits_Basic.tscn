@@ -492,8 +492,8 @@ margin_right = 319.0
 margin_bottom = 131.0
 mouse_filter = 2
 bbcode_enabled = true
-bbcode_text = "[right]5 points available"
-text = "5 points available"
+bbcode_text = "[right]5 포인트 남음"
+text = "5 포인트 남음"
 
 [node name="Select" type="Node2D" parent="."]
 position = Vector2( 192, -8 )

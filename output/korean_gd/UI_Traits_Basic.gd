@@ -512,20 +512,20 @@ func write_description(trait, button):
 		
 		if trait.generic == false:
 			stringa += "\n\n"
-			stringa += translate.element(trait.Element) + " [color=#808080]element[/color]"
+			stringa += translate.element(trait.Element) + " [color=#808080]원소[/color]"
 			stringa += "\n\n"
 			if Global.Player.abilities.has(trait.title):
 				stringa += "[color=#808080]레벨 [/color]" + str(Global.Player.abilities[trait.title].Level)
 			else:
-				stringa += "[color=#808080]Unknown[/color]"
+				stringa += "[color=#808080]미습득[/color]"
 			
-			stringa += "\n\n[color=#808080]Costs [color=#ffff00]"
+			stringa += "\n\n[color=#808080]비용 [color=#ffff00]"
 			stringa += str(trait.cost)
-			stringa += "[/color] to "
+			stringa += "[/color] / "
 			if Global.Player.abilities.has(trait.title):
-				stringa += "level up[/color]"
+				stringa += "강화[/color]"
 			else:
-				stringa += "learn[/color]"
+				stringa += "습득[/color]"
 			
 			
 		else:
@@ -600,7 +600,7 @@ func write_elements():
 		
 			
 	else:
-		stringa += "[color=#707070]3개 원소에서 능력을 획득하라...[/color]"
+		stringa += "[color=#707070]3개 원소에서 능력을 습득하라...[/color]"
 	
 	
 	
@@ -612,7 +612,7 @@ func write_points():
 	stringa += "[color=#ffff30]"
 	stringa += str(Global.Player.POINTS_TRAITS)
 	stringa += "[/color]"
-	stringa += " [color=#c0c0c0]포인트 사용 가능"
+	stringa += " [color=#c0c0c0]포인트 남음"
 	return stringa
 
 func close():

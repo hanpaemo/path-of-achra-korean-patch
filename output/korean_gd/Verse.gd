@@ -20,17 +20,17 @@ func _ready():
 	stringa = stringa.replace("(n)", "[color=#ffff50]" + StatePlayerSheet.title_name + "[/color]")
 	
 	if verse.book == "achra":
-		stringa += "\n\n\n\n[color=#707070]~ 아크라의 시편, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 아크라의 시편, 발췌 ~[/color]"
 	elif verse.book == "king":
-		stringa += "\n\n\n\n[color=#707070]~ 왕의 현상학, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 왕의 현상록, 발췌 ~[/color]"
 	elif verse.book == "prayer":
-		stringa += "\n\n\n\n[color=#707070]~ 잃어버린 기도문, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 잃어버린 기도문, 발췌 ~[/color]"
 	elif verse.book == "history":
-		stringa += "\n\n\n\n[color=#707070]~ 황폐한 역사서, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 파멸한 연대기, 발췌 ~[/color]"
 	elif verse.book == "dune":
-		stringa += "\n\n\n\n[color=#707070]~ 모래바다의 권고, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 사구해의 권면, 발췌 ~[/color]"
 	elif verse.book == "imp":
-		stringa += "\n\n\n\n[color=#707070]~ 재상 임프의 서판, 단편 ~[/color]"
+		stringa += "\n\n\n\n[color=#707070]~ 재상 임프의 점토판, 발췌 ~[/color]"
 	
 	$verse.bbcode_text = "[color=#a0a0a0]" + stringa
 	

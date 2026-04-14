@@ -1,0 +1,138 @@
+[[분류:로그라이크 게임]][[분류:인디 게임]][[분류:2024년 게임]][[분류:다크 판타지]][[분류:Godot 엔진 게임]][[분류:Windows 게임]][[분류:Linux 게임]][[분류:던전 크롤]]
+||<-2><table align=right><table width=500><table bordercolor=#1b2838><bgcolor=#1b2838><table bgcolor=#ffffff,#2d2f34> {{{#daa520 '''{{{+1 Path of Achra}}}'''}}} ||
+||<-2><nopad> {{{#!wiki style="text-align:center"
+[[파일:Path of Achra 헤더.jpg|width=100%]]
+}}} ||
+||<width=120><colbgcolor=#1b2838><colcolor=#daa520> '''개발''' || Ulfsire ||
+|| '''유통''' || Slouching Beast LLC ||
+|| '''플랫폼''' || [[Microsoft Windows]], [[Linux]] ||
+|| '''ESD''' || [[Steam]], [[itch.io]] ||
+|| '''장르''' || [[로그라이크]], [[RPG]], [[던전 크롤러]] ||
+|| '''출시''' || [[2024년]] [[5월 7일]][* 얼리 액세스: 2023년 5월 1일] ||
+|| '''엔진''' || [[Godot|Godot 3.5.2]] ||
+|| '''한국어 지원''' || 미지원 [* [[https://hanpaemo.blogspot.com/2026/03/path-of-achra-4759-gdscripttscn.html|한국어 패치]]] ||
+|| '''심의 등급''' || 미정 ||
+|| '''가격''' || ₩11,000 ||
+|| '''관련 사이트''' || [[https://store.steampowered.com/app/2128270|[[파일:스팀 아이콘.svg|width=25]]]] [[https://ulfsire.itch.io/path-of-achra|itch.io]] [[https://pathofachra.wiki.gg|위키]] ||
+
+[목차]
+[clearfix]
+== 개요 ==
+{{{#!wiki style="margin: -5px -10px; padding: 5px 10px; background-color: #1b2838,#1b2838; border-radius: 5px; text-align: center; font-size: 1.1em"
+{{{#daa520 ''The land floods behind you. The Obelisk awaits.''}}}
+}}}
+
+'''Path of Achra'''는 1인 개발자 Ulfsire가 만든 다크 판타지 [[로그라이크]]다. 고대 세계를 배경으로, 신에게 부름받은 순례자(Pilgrim)가 세상 끝의 오벨리스크를 향해 나아간다.
+
+2023년 5월 1일 [[Steam]] 얼리 액세스로 출시, 2024년 5월 7일 정식 출시. 개발자 스스로 '부서진 빌드 샌드박스(broken build sandbox)'라 부를 만큼 문화·직업·신앙·특성·장비를 조합해 극단적인 빌드를 짤 수 있다.
+
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><bgcolor=#1b2838> {{{#daa520 '''공식 소개'''}}} ||
+||<bgcolor=#1b2838> {{{#fff 당신의 뒤로 대지가 물에 잠긴다. 오벨리스크가 기다린다.[br]빌드 조합 1,000가지 이상. 패시브 파워 50가지 이상. 끝없는 시너지.[br]깨부수고, 조합하고, 오벨리스크에 도달하라.}}} ||
+
+== 시스템 요구 사양 ==
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''구분'''}}} || {{{#fff '''최소/권장 사양'''}}} ||
+|| '''[[운영 체제|OS]]''' || [[Windows Vista]] 이상 / [[Linux]] ||
+|| '''[[RAM]]''' || 512MB ||
+|| '''GPU''' || OpenGL 3.3 이상 ||
+|| '''저장 공간''' || 512MB ||
+
+Godot 3.5.2 기반 가벼운 2D 게임이라 사양 부담은 거의 없다.
+
+== 게임 시스템 ==
+=== 캐릭터 생성 ===
+매 회차 시작 시 '''문화(Race)''', '''직업(Class)''', '''신앙(God)''' 세 가지를 골라 캐릭터를 만든다. 조합에 따라 시작 장비, 능력치 보너스, 기도(Prayer) 스킬이 달라진다. 조합 가짓수는 1,000개 이상.
+
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''항목'''}}} || {{{#fff '''내용'''}}} || {{{#fff '''예시'''}}} ||
+|| '''문화''' || 종족 및 문화권. 능력치 보너스와 패시브 특성 제공 || Qamar(갑옷 미착용 시 보너스), Mabara, Deru 등 ||
+|| '''직업''' || 시작 장비와 고유 능력 결정 || Warrior, Priest, Ranger, Witch 등 ||
+|| '''신앙''' || 3가지 기도(Prayer) 스킬 제공. 유일하게 자동 발동하는 능력 || Humbaba, Yu, Rabal 등 ||
+
+==== 능력치 ====
+캐릭터의 기본 능력치는 6가지다.
+
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''능력치'''}}} || {{{#fff '''약자'''}}} || {{{#fff '''영향'''}}} ||
+|| Strength || STR || 근접 피해, 장비 요구치 ||
+|| Agility || AGI || 회피, 이동 우선순위 ||
+|| Dexterity || DEX || 명중, 원거리 피해 ||
+|| Vitality || VIT || 체력, 상태이상 저항 ||
+|| Intellect || INT || 마법 피해, 마나 ||
+|| Will || WIL || 기도 효과, 상태이상 저항 ||
+
+문화와 직업에 따라 초기 분배가 다르며, 레벨업 시 일부 능력치가 자동 상승한다.
+
+=== 전투 ===
+턴 기반 전투로 진행된다. 전통 로그라이크처럼 던전을 돌아다니는 비중은 적고, 전투 자체에 집중하는 구조다.
+
+==== 파워(Power) ====
+10개 이상 계열에서 50가지 이상의 '''파워(Power)'''를 고를 수 있다. 대부분 특정 조건에서 자동 발동하는 패시브 방식.
+
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''발동 조건 예시'''}}} || {{{#fff '''설명'''}}} ||
+|| 적을 공격할 때 || 추가 효과 발동 ||
+|| 화염 피해를 줄 때 || 속성 피해 연계 ||
+|| 피해를 받을 때 || 방어 시너지 ||
+|| 킬 획득 시 || 처치 보상 ||
+
+장비에도 패시브 능력이 달려 있다. 파워·장비·직업 특성을 엮어 시너지를 만드는 게 이 게임의 골자.
+
+==== 장비 ====
+장비는 무기, 방어구, 장신구로 나뉜다. 무기 종류에 따라 공격 방식과 사거리가 다르며, 방어구는 방어력 외에도 고유 패시브를 부여한다. 장비마다 능력치 요구치가 있어서 빌드 방향에 따라 착용 가능 여부가 갈린다. 던전 내에서 드롭되거나 상점에서 구매하며, 같은 장비라도 접두·접미 옵션이 붙어 성능이 달라진다.
+
+==== 특성(Traits)과 프레스티지 ====
+레벨업마다 '''특성(Trait)'''을 골라 캐릭터를 강화한다. 특정 특성 조합에 충분히 투자하면 '''프레스티지 클래스'''가 열리면서 플레이 스타일이 확 바뀐다.
+
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''프레스티지'''}}} || {{{#fff '''효과'''}}} ||
+|| Blood-drinker || 모든 피 피해가 자신의 치유로 전환 ||
+|| Mura || 공격을 반사하는 거울 상태 ||
+
+=== 오토무브 ===
+오토무브(Automove) 명령을 지원한다. 한 회차가 30분~1시간이면 끝나는 빠른 템포.
+
+== 스토리 ==
+세계의 끝에서 대홍수가 밀려온다. 플레이어는 신에게 선택받은 순례자가 되어 Achra의 땅을 가로지르고, 세계 끝에 선 '''오벨리스크(Obelisk)'''에 닿아야 한다. 층마다 몬스터와 덫, 신들의 간섭이 기다린다.
+
+곳곳에 시구(Verse) 형태의 서사시가 박혀 있어 고대 신화적 세계관을 엿볼 수 있다. 메소포타미아·레반트·아프리카 신화에서 따온 고유명사가 많고, 신들 사이의 관계와 갈등이 게임 메커니즘에 녹아 있다. 어떤 신을 섬기느냐에 따라 적대 관계인 신의 추종자가 강화되는 식.
+
+== 그래픽 ==
+클래식한 [[픽셀 그래픽]] 스타일. 전통 로그라이크의 타일 기반 표현을 따른다. 단순하지만 아이템·적·지형 구분은 명확하고, 텍스트 기반 UI 덕에 정보 밀도가 높다.
+
+== 지원 언어 ==
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''언어'''}}} || {{{#fff '''인터페이스'''}}} || {{{#fff '''자막'''}}} ||
+|| [[영어]] || O || O ||
+|| '''[[한국어]]''' || '''△'''[* 비공식 패치] || '''△'''[* 비공식 패치] ||
+
+공식적으로는 영어만 지원한다.
+
+== 한국어 패치 ==
+공식 한국어는 지원하지 않지만, '''[[한패모]]'''에서 한국어 패치를 배포 중이다.[* [[https://hanpaemo.blogspot.com/2026/03/path-of-achra-4759-gdscripttscn.html|링크]]]
+설치는 {{{PathofAchra-ko-full.pck}}}를 받아 게임 폴더의 {{{PathofAchra.pck}}}를 교체하면 된다.[* 원본 백업 권장. 게임 업데이트 시 원본으로 돌아갈 수 있다.]
+
+== 평가 ==
+=== Steam 유저 평가 ===
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''평가'''}}} || {{{#fff '''긍정률'''}}} || {{{#fff '''리뷰 수'''}}} ||
+||<bgcolor=#66c0f4> {{{#fff '''압도적으로 긍정적'''}}} || 98% || 3,091개[* 2026년 4월 기준] ||
+
+ * '''빌드 자유도''' — 문화·직업·신앙·특성·장비 조합이 1,000가지를 넘고, 의도적으로 밸런스를 풀어둔 덕에 터무니없이 강한 빌드를 짜는 재미가 있다. 개발자가 직접 '부서진 빌드 샌드박스'라 부른 게 괜한 말이 아니다.
+ * '''빠른 템포''' — 오토무브 덕에 한 판이 30분~1시간이면 끝난다. 죽어도 바로 다음 빌드를 시도할 수 있어 중독성이 강하다.
+ * '''가격 대비 만족도''' — ₩11,000에 1인 개발 게임이라고 보기 힘든 콘텐츠 밀도. '시간 대비 가성비 최고'라는 리뷰가 자주 보인다.
+ * '''조작 간결함''' — 텍스트 중심 UI라 익숙해지면 정보 파악이 빠르고, 턴제라 천천히 생각할 여유가 있다.
+
+== 업데이트 이력 ==
+||<table align=center><table bordercolor=#1b2838><table bgcolor=#ffffff,#2d2f34><rowbgcolor=#1b2838> {{{#fff '''시기'''}}} || {{{#fff '''내용'''}}} ||
+|| 2023.05 || Steam 얼리 액세스 출시 ||
+|| 2023.05 ~ 2024.04 || 얼리 액세스 기간 중 지속 업데이트. 문화·직업·신앙·파워 추가, 밸런스 조정 ||
+|| 2024.05 || 정식 출시(v1.0). 프레스티지 시스템 포함 ||
+|| 2024 하반기 ~ || 정식 출시 이후에도 꾸준히 콘텐츠 패치 진행 중 ||
+
+== 기타 ==
+ * [[Steam]] 얼리 액세스 기간은 약 1년(2023.5 ~ 2024.5).
+ * [[itch.io]]에서도 판매 중.
+ * Tiny Rogues와의 크로스오버 번들이 Steam에서 판매 중.
+ * 개발자 Ulfsire가 Game Data Podcast에서 Godot 엔진 선택 이유와 로그라이크 디자인 철학을 이야기한 적 있다.[* [[https://www.gamedatapodcast.com/p/ulfsire-path-of-achra-roguelike-godot|Ulfsire on Path of Achra]]]
+ * [[https://pathofachra.wiki.gg|공식 위키]]에서 문화·직업·신앙·파워·장비·몬스터 정보를 확인할 수 있다.
+ * [[Reddit]]의 r/pathofachra 서브레딧이 영어권 주요 커뮤니티.
+
+== 관련 문서 ==
+ * [[로그라이크]]
+ * [[던전 크롤러]]
+ * [[Godot]]
+ * [[인디 게임]]

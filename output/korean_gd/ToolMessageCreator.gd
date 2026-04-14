@@ -451,7 +451,7 @@ func write_enemy_popup(data):
 	if Global.Player.get_resist(data.dmgtype) > 0: resistcolor = "[color=#00ff00]"
 	if Global.Player.get_resist(data.dmgtype) < 0: resistcolor = "[color=#ff0000]"
 	
-	stringa += " [color=#707070]저항[/color] " + resistcolor + str(Global.Player.get_resist(data.dmgtype)) + "%[/color]"
+	stringa += " [color=#707070]you resist[/color] " + resistcolor + str(Global.Player.get_resist(data.dmgtype)) + "%[/color]"
 	
 	stringa += "\n"
 	stringa += "[color=#ffa050]" + str(data.accuracy[0] * 10) + "[/color] 명중률"

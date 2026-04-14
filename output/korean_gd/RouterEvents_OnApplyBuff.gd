@@ -889,10 +889,12 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 		
 
 
-static func text_popup(target, name, color):
+static func text_popup(target, name, color, duration = 0):
 	
 	var apoint = target.get_global_position()
 	var atext = "" + str(name)
+	if int(duration) > 0:
+		atext += "+" + str(int(duration))
 
 	ProcessText.spawn_text_popup(apoint, atext, color)
 
@@ -900,7 +902,7 @@ static func text_popup(target, name, color):
 static func message_buff(name, caster, target, duration, color, msg):
 	
 	Global.sound.new_sound("Effect")
-	text_popup(target, name, color)
+	text_popup(target, name, color, duration)
 	var txcolor = color
 	txcolor = "[color=#c0c0c0]"
 	var name_a = caster.get_name_color()

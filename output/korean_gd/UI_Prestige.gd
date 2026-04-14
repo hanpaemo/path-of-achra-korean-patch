@@ -253,7 +253,7 @@ func write_elements():
 		
 			
 	else:
-		stringa += "[color=#707070]능력을 획득하여 해금하라...[/color]"
+		stringa += "[color=#707070]Acquire powers to unlock...[/color]"
 	
 	
 	

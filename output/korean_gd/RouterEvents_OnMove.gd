@@ -745,7 +745,7 @@ static func check_wait(unit):
 					"target": unit, 
 					"buff": buff, 
 					"duration": int(float(buff.duration) / 2.0), 
-					"msg": "제자리"
+					"msg": "Standing still"
 		}
 				ProcessQueue.add_effect(action)
 		
@@ -756,7 +756,7 @@ static func check_wait(unit):
 					"target": unit, 
 					"buff": buff, 
 					"duration": int(float(buff.duration) / 2.0), 
-					"msg": "제자리"
+					"msg": "Standing still"
 		}
 				ProcessQueue.add_effect(action)
 		

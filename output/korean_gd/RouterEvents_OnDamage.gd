@@ -2086,7 +2086,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 				increase = float(int(increase))
 				if increase > 0.0:
 					total_increase += increase
-					mod_info.string.append("Attune +" + str(int(increase)))
+					mod_info.string.append("동조 +" + str(int(increase)))
 		
 		if buff.name == "Crowform":
 				var increase = float(buff.duration) * 0.01

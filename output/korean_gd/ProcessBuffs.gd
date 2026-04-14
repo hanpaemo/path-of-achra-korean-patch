@@ -81,7 +81,7 @@ static func plague(duration, target, source, _buff_names):
 	"effect_range": 1, 
 	"buff": new_buff, 
 	"alliance": calcrange.get_allied_alliance(target), 
-	"msg": "역병 전파"
+	"msg": "Plague spread"
 			}
 	ProcessQueue.add_effect(action)
 	

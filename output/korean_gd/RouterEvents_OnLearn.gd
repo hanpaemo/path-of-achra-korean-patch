@@ -11,7 +11,7 @@ static func check(label, msg):
 	match label:
 		
 		"GoreTide":
-				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#ff1010]Gore Tide[/color]! [color=#707070]+50 체력[/color]")
+				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#ff1010]피의 밀물[/color]! [color=#707070]+50 체력[/color]")
 				if ToolSettings.settings_data.cycle_current > 1:
 					var hp_bonus = float(4)
 					hp_bonus *= float(ToolSettings.settings_data.cycle_current)
@@ -24,7 +24,7 @@ static func check(label, msg):
 				Global.Player.update()
 		
 		"Kuga":
-				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#a0a000]Kuga[/color]! [color=#707070]+50 체력[/color]")
+				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#a0a000]쿠가[/color]! [color=#707070]+50 체력[/color]")
 				if ToolSettings.settings_data.cycle_current > 1:
 					var hp_bonus = float(4)
 					hp_bonus *= float(ToolSettings.settings_data.cycle_current)
@@ -37,7 +37,7 @@ static func check(label, msg):
 				Global.Player.update()
 		
 		"Merzot":
-				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#70ff00]Merzot[/color]! [color=#707070]+50 체력[/color]")
+				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#70ff00]메르조트[/color]! [color=#707070]+50 체력[/color]")
 				if ToolSettings.settings_data.cycle_current > 1:
 					var hp_bonus = float(40)
 					hp_bonus *= float(ToolSettings.settings_data.cycle_current)
@@ -49,7 +49,7 @@ static func check(label, msg):
 				Global.Player.update()
 		
 		"AmplifiedHealing":
-				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#00a000]Life Chant[/color]! [color=#707070]+50 체력[/color]")
+				ToolMessageCreator.add_message("[color=#a0c0c0]", "[color=#00a000]생명의 노래[/color]! [color=#707070]+50 체력[/color]")
 				if ToolSettings.settings_data.cycle_current > 1:
 					var hp_bonus = float(4)
 					hp_bonus *= float(ToolSettings.settings_data.cycle_current)

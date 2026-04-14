@@ -72,7 +72,7 @@ var event_killer = null
 var event_killing_damg_type = "none"
 var traits_duplicate = {}
 
-var taunt = "어찌 이럴 수가?"
+var taunt = "How could you do this?"
 var spritescreen = StatePlayerSheet.sprite_skin
 
 var sprite_corpse = "CorpseRed"

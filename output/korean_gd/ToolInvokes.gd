@@ -3,6 +3,42 @@ extends Node
 
 class_name invoker
 
+static func display_recharge_label(label):
+	return {
+		"adjacent ally damaged by enemy": "인접 아군이 적에게 피해를 입을 때",
+		"adjacent attack": "인접 공격 시",
+		"adjacent enemy": "인접 적 존재 시",
+		"ant kill": "개미 처치 시",
+		"attack": "공격 시",
+		"attack bare fist": "맨손 공격 시",
+		"attacked adjacent": "인접 공격 받을 시",
+		"awe": "야자타 시전 시",
+		"block": "방어 시",
+		"damaged by enemy": "적에게 피해 받을 시",
+		"divine intervention": "신성 개입 시",
+		"dodge": "회피 시",
+		"dudar step": "부식 적 이동 시",
+		"enemy death": "적 사망 시",
+		"enemy death adjacent": "인접 적 사망 시",
+		"enemy death in range": "범위 내 적 사망 시",
+		"game turn none adjacent": "인접 적 없는 게임 턴",
+		"gilded": "금빛 시체 소환 시",
+		"glory": "영광 상승 시",
+		"kill": "처치 시",
+		"kill on grass": "성초 위에서 처치 시",
+		"kill while bloodrage": "피의 광분 상태에서 처치 시",
+		"meditate": "명상 시",
+		"moc": "프로소 목 시전 시",
+		"new area": "새 구역 진입 시",
+		"pickup": "아이템 습득 시",
+		"stand still": "제자리 유지 시",
+		"stand still adjacent": "인접한 채 제자리 유지 시",
+		"step adjacent": "적에게 인접 이동 시",
+		"step not adjacent": "비인접 이동 시",
+		"teleport": "순간이동 시",
+		"transform item": "아이템 변환 시",
+	}.get(label, label)
+
 static func recharge(label):
 	if Global.Player.really_dead == false:
 		recharge_if_alive(label)
@@ -19,7 +55,7 @@ static func recharge_if_alive(label):
 						
 				if dict[invoke].use < dict[invoke].use_max:
 					dict[invoke].use += dict[invoke].use_gain
-					ToolMessageCreator.add_message("[color=#707070]", textstrip.strip_bbcode(dict[invoke].name) + " +" + str(int(dict[invoke].use_gain)) + "  [color=#707070]" + label + "[/color]")
+					ToolMessageCreator.add_message("[color=#707070]", textstrip.strip_bbcode(dict[invoke].name) + " +" + str(int(dict[invoke].use_gain)) + "  [color=#707070]" + display_recharge_label(label) + "[/color]")
 				if dict[invoke].use > dict[invoke].use_max:
 					dict[invoke].use = dict[invoke].use_max
 
