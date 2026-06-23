@@ -95,7 +95,7 @@ static func check_effects(attacker, defender, weapon):
 	
 	
 	for buff in attacker.Buffs:
-		if buff.name == "Bleed":
+		if buff.title == "Bleed":
 			if attacker_traits.has("MasterBleed") == false and attacker_traits.has("Damunja") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -108,7 +108,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 				ProcessQueue.add_effect(action)
 			
-		if buff.name == "Dream" or buff.name == "Treeform":
+		if buff.title == "Dream" or buff.title == "Treeform":
 			var action = {
 					"name": "remove_buff", 
 					"target": attacker, 
@@ -117,7 +117,7 @@ static func check_effects(attacker, defender, weapon):
 		}
 			ProcessQueue.add_effect(action)
 		
-		if buff.name == "Drakeform":
+		if buff.title == "Drakeform":
 			var action = {
 			"name": "hit_targets_range", 
 			"attacker": attacker, 
@@ -141,7 +141,7 @@ static func check_effects(attacker, defender, weapon):
 			ProcessQueue.add_effect(action)
 			
 		
-		if buff.name == "Windstrike":
+		if buff.title == "Windstrike":
 			
 			var action = {
 					"name": "remove_buff", 
@@ -165,7 +165,7 @@ static func check_effects(attacker, defender, weapon):
 			
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Gust":
+		if buff.title == "Gust":
 			
 			var action = {
 					"name": "remove_buff", 
@@ -191,7 +191,7 @@ static func check_effects(attacker, defender, weapon):
 				ProcessQueue.add_effect(action)
 		
 	
-		if buff.name == "Horrorform":
+		if buff.title == "Horrorform":
 			
 				var action = {
 				"name": "magic_damage_target", 
@@ -216,7 +216,7 @@ static func check_effects(attacker, defender, weapon):
 			}
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Anqarak":
+		if buff.title == "Anqarak":
 			
 				var action = {
 				"name": "magic_damage_target", 
@@ -230,7 +230,7 @@ static func check_effects(attacker, defender, weapon):
 			
 				ProcessQueue.add_effect(action)
 	
-		if buff.name == "Lizardform":
+		if buff.title == "Lizardform":
 			var buff_list = ["Scorch", "Corrosion", "Sickness"]
 			
 			for buff_name in buff_list:
@@ -258,7 +258,7 @@ static func check_effects(attacker, defender, weapon):
 	for buff in defender.Buffs:
 		
 		
-		if buff.name == "Stasis":
+		if buff.title == "Stasis":
 			
 			if defender_traits.has("VoidHelm") == false and defender_traits.has("VoidChest") == false and defender_traits.has("NullChausses") == false:
 				var duration = 1
@@ -274,7 +274,7 @@ static func check_effects(attacker, defender, weapon):
 			
 		
 		
-		if buff.name == "Doom":
+		if buff.title == "Doom":
 			if defender_traits.has("MasterDoom") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -287,7 +287,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 				ProcessQueue.add_effect(action)
 	
-		if buff.name == "Freeze":
+		if buff.title == "Freeze":
 			if defender_traits.has("Parafrost") == false and defender_traits.has("VoidMage") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -300,7 +300,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 				ProcessQueue.add_effect(action)
 	
-		if buff.name == "Corrosion":
+		if buff.title == "Corrosion":
 			
 				var action = {
 					"name": "magic_damage_target", 
@@ -316,7 +316,7 @@ static func check_effects(attacker, defender, weapon):
 	if attacker_traits.has("PurifyingDisplay"):
 		
 		for buff in attacker.Buffs:
-			if buff.name == "Entangle" or buff.name == "Freeze" or buff.name == "Sickness" or buff.name == "Bleed":
+			if buff.title == "Entangle" or buff.title == "Freeze" or buff.title == "Sickness" or buff.title == "Bleed":
 				var action = {
 					"name": "remove_buff", 
 					"target": attacker, 
@@ -337,7 +337,7 @@ static func check_effects(attacker, defender, weapon):
 			}
 			ProcessQueue.add_effect(action)
 			for buffs in defender.Buffs:
-				if buffs.name == "Scorch":
+				if buffs.title == "Scorch":
 					action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -362,7 +362,7 @@ static func check_effects(attacker, defender, weapon):
 			ProcessQueue.add_effect(action)
 			
 			for buffs in defender.Buffs:
-				if buffs.name == "Entangle":
+				if buffs.title == "Entangle":
 					action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -386,7 +386,7 @@ static func check_effects(attacker, defender, weapon):
 			}
 			ProcessQueue.add_effect(action)
 			for buffs in defender.Buffs:
-				if buffs.name == "Doom":
+				if buffs.title == "Doom":
 					action = {
 				"name": "magic_damage_tiles_in_range", 
 				"caster": attacker, 
@@ -636,7 +636,7 @@ static func check_effects(attacker, defender, weapon):
 	
 	if attacker_traits.has("Wormform"):
 		for check_buff in attacker.Buffs:
-				if check_buff.name == "Newtform":
+				if check_buff.title == "Newtform":
 					var buff = cloner.clone_dict(LBuffs.buff_data.Corrosion)
 					buff["target"] = attacker
 					buff["source"] = attacker
@@ -653,7 +653,7 @@ static func check_effects(attacker, defender, weapon):
 					ProcessQueue.add_effect(action)
 	if defender_traits.has("Wormform"):
 		for check_buff in defender.Buffs:
-				if check_buff.name == "Newtform":
+				if check_buff.title == "Newtform":
 					var buff = cloner.clone_dict(LBuffs.buff_data.Corrosion)
 					buff["target"] = defender
 					buff["source"] = defender
@@ -987,7 +987,7 @@ static func check_effects(attacker, defender, weapon):
 	
 	if attacker_traits.has("Kashra"):
 			for buff in attacker.Buffs:
-				if buff.name != "Inflame":
+				if buff.title != "Inflame":
 					var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1024,7 +1024,7 @@ static func check_effects(attacker, defender, weapon):
 				
 			for check_buff in defender.Buffs:
 				
-				if check_buff.name == "Inflame":
+				if check_buff.title == "Inflame":
 					var action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -1237,7 +1237,7 @@ static func check_effects(attacker, defender, weapon):
 			ProcessQueue.add_effect(action)
 			
 			for cbuff in attacker.Buffs:
-				if cbuff.name == "Blind":
+				if cbuff.title == "Blind":
 					
 					action = {
 					"name": "magic_damage_target", 
@@ -1293,7 +1293,7 @@ static func check_effects(attacker, defender, weapon):
 	
 	if defender.get_traits().has("UrBeast"):
 		for buff in defender.Buffs:
-			if buff.name == "Beastform":
+			if buff.title == "Beastform":
 				for n in buff.duration:
 					var action = {
 			"name": "attack_targets", 
@@ -1363,7 +1363,7 @@ static func check_effects(attacker, defender, weapon):
 			
 			var scorch_duration = 0
 			for buff in defender.Buffs:
-				if buff.name == "Scorch":
+				if buff.title == "Scorch":
 					scorch_duration += buff.duration
 				
 			if scorch_duration > 0:
@@ -1434,7 +1434,7 @@ static func check_effects(attacker, defender, weapon):
 		
 			var buff_duration = 0
 			for buff in defender.Buffs:
-				if buff.name == "Sickness" or buff.name == "Doom" or buff.name == "Bleed" or buff.name == "Plague":
+				if buff.title == "Sickness" or buff.title == "Doom" or buff.title == "Bleed" or buff.title == "Plague":
 					buff_duration += buff.duration
 			
 		
@@ -1524,7 +1524,7 @@ static func check_effects(attacker, defender, weapon):
 		
 		
 		for buff in attacker.Buffs:
-			if buff.name == "Inflame":
+			if buff.title == "Inflame":
 				var action = {
 					"name": "magic_damage_target", 
 					"target": attacker, 
@@ -1731,7 +1731,7 @@ static func check_effects(attacker, defender, weapon):
 			ProcessQueue.add_effect(action)
 			
 			for buff in attacker.Buffs:
-				if buff.name == "Vineform":
+				if buff.title == "Vineform":
 					for unit in Global.Allies:
 						if unit != Global.Player:
 							if unit.type.tags.has("[color=#00a000]Plant[/color]"):
@@ -1966,7 +1966,7 @@ static func check_effects(attacker, defender, weapon):
 		var damage = 10
 		var spark_duration = 0
 		for buff in attacker.Buffs:
-			if buff.name == "Sparkform":
+			if buff.title == "Sparkform":
 				spark_duration += buff.duration
 		damage *= spark_duration
 		
@@ -2335,7 +2335,7 @@ static func check_effects(attacker, defender, weapon):
 					ProcessQueue.add_effect(action2)
 					
 					for buff in unit.Buffs:
-						if buff.name == "Corrosion":
+						if buff.title == "Corrosion":
 							var action = {
 							"name": "heal", 
 							"amount": buff.duration, 
@@ -2538,7 +2538,7 @@ static func check_effects(attacker, defender, weapon):
 					if enemy.residence.tileset.title == "acid":
 						
 						for buff in enemy.Buffs:
-							if buff.name == "Corrosion":
+							if buff.title == "Corrosion":
 								buff_duration += buff.duration
 								
 					
@@ -2996,7 +2996,7 @@ static func check_effects(attacker, defender, weapon):
 		ProcessQueue.add_effect(action)
 		
 		for checkbuff in attacker.Buffs:
-			if checkbuff.name == "Corrosion":
+			if checkbuff.title == "Corrosion":
 				action = {
 					"name": "magic_damage_target", 
 					"target": attacker, 
@@ -3054,7 +3054,7 @@ static func check_effects(attacker, defender, weapon):
 			var trait = defender.get_traits().MasterDoom
 			var multi = 0
 			for buff in defender.Buffs:
-				if buff.name == "Doom":
+				if buff.title == "Doom":
 					multi = buff.duration * trait.Level
 			if multi > 0:
 				var action = {
@@ -3073,7 +3073,7 @@ static func check_effects(attacker, defender, weapon):
 	if defender_traits.has("MasterEntangle") == true:
 		if defender.get_buff_names().has("Entangle"):
 			for buff in defender.Buffs:
-				if buff.name == "Entangle":
+				if buff.title == "Entangle":
 					var action = {
 					"name": "magic_damage_target", 
 					"target": attacker, 
@@ -3177,7 +3177,7 @@ static func check_effects(attacker, defender, weapon):
 
 	if attacker_traits.has("Shapeshifter") == true:
 		for buff in attacker.Buffs:
-			if buff.name == "Wildform":
+			if buff.title == "Wildform":
 				var types = ["lightning", "fire", "poison"]
 				for element in types:
 					var action = {
@@ -3207,7 +3207,7 @@ static func check_effects(attacker, defender, weapon):
 
 	
 	for buff in defender.Buffs:
-		if buff.name == "Repulsion":
+		if buff.title == "Repulsion":
 			if defender_traits.has("Mesmer") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -3231,7 +3231,7 @@ static func check_effects(attacker, defender, weapon):
 			}
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Anqarak":
+		if buff.title == "Anqarak":
 				var refract_damage = 2.0
 				
 				var action = {
@@ -3245,7 +3245,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Refraction":
+		if buff.title == "Refraction":
 				var refract_damage = 10.0
 				
 				var action = {
@@ -3260,7 +3260,7 @@ static func check_effects(attacker, defender, weapon):
 				ProcessQueue.add_effect(action)
 		
 		
-		if buff.name == "Lizardform":
+		if buff.title == "Lizardform":
 			var action = {
 					"name": "magic_damage_target", 
 					"target": attacker, 
@@ -3272,7 +3272,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 			ProcessQueue.add_effect(action)
 		
-		if buff.name == "Grace":
+		if buff.title == "Grace":
 			var action = {
 					"name": "magic_damage_target", 
 					"target": attacker, 
@@ -3284,7 +3284,7 @@ static func check_effects(attacker, defender, weapon):
 				}
 			ProcessQueue.add_effect(action)
 		
-		if buff.name == "Protection":
+		if buff.title == "Protection":
 			if Global.rng.randi_range(1, 10) <= 2:
 				var action = {
 					"name": "remove_buff", 
@@ -3342,7 +3342,7 @@ static func extra_attacks_from_initial(defender, attacker, weapon, msg):
 	
 	if attacker.get_traits().has("Mask_Frenzy"):
 		for buff in attacker.Buffs:
-			if buff.name == "Inflame":
+			if buff.title == "Inflame":
 				msg = attacker.get_traits().Mask_Frenzy.Name
 				for n in buff.duration:
 					ToolMagicMaker.add_attack(attacker, tile_start, tile_end, tile_range, enemy, weapon, msg)

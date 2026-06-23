@@ -721,11 +721,11 @@ func get_resist(label):
 			resist += bonus
 	
 	for buff in Buffs:
-		if buff.name == "Plague":
+		if buff.title == "Plague":
 			resist -= buff.duration
-		if buff.name == "Treeform" and label != "fire":
+		if buff.title == "Treeform" and label != "fire":
 			resist += 75
-		if buff.name == "Vineform" and label == "fire":
+		if buff.title == "Vineform" and label == "fire":
 			resist -= 50
 	
 	if resist > 75:
@@ -1554,7 +1554,7 @@ func buffs_tick():
 	
 	for buff in Buffs:
 		buff.duration -= 1
-		buffcheck.check(buff.name, buff.duration, buff.target, buff.source, buff)
+		buffcheck.check(buff.title, buff.duration, buff.target, buff.source, buff)
 	
 	Global.game.get_node("UI").get_node("UI_BuffDrawer").write_buffs()
 		
@@ -1570,7 +1570,7 @@ func write_buffs():
 func get_buff_names():
 	var array = []
 	for buff in Buffs:
-		array.append(buff.name)
+		array.append(buff.title)
 	return array
 
 func slide(pos_start, pos_end):

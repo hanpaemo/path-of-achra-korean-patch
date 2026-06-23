@@ -393,7 +393,7 @@ static func vendi():
 	
 	var repeat = 0
 	for buff in unit.Buffs:
-		if buff.name == "Grace":
+		if buff.title == "Grace":
 			repeat += buff.duration
 	for n in repeat:
 		ProcessQueue.add_effect(action)
@@ -415,7 +415,7 @@ static func bloodrage():
 	ProcessQueue.add_effect(action)
 	
 	for buffs in unit.Buffs:
-		if buffs.name == "Bleed":
+		if buffs.title == "Bleed":
 			action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -439,7 +439,7 @@ static func halhala():
 	var source = Global.Player
 	var multi = 1
 	for buff in source.Buffs:
-		if buff.name == "Bloodrage":
+		if buff.title == "Bloodrage":
 			multi += buff.duration
 	var action = {
 		"name": "magic_damage_tiles_in_range", 
@@ -506,7 +506,7 @@ static func leget():
 	ProcessQueue.add_effect(action)
 	
 	for buff in unit.Buffs:
-		if buff.name == "Sickness":
+		if buff.title == "Sickness":
 			action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -559,7 +559,7 @@ static func dorova():
 	
 	
 	for buffs in unit.Buffs:
-		if buffs.name == "Dream":
+		if buffs.title == "Dream":
 			var action = {
 			"name": "heal", 
 			"amount": 20.0 * buffs.duration, 
@@ -569,7 +569,7 @@ static func dorova():
 		}
 			ProcessQueue.add_effect(action)
 
-		if buffs.name == "Freeze":
+		if buffs.title == "Freeze":
 			var action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -582,7 +582,7 @@ static func tyrana():
 	var unit = Global.Player
 	
 	for buffs in unit.Buffs:
-		if buffs.name == "Dream":
+		if buffs.title == "Dream":
 			var buff = cloner.clone_dict(LBuffs.buff_data.Dream)
 			buff["target"] = unit
 			buff["source"] = unit
@@ -599,7 +599,7 @@ static func muruga():
 	var unit = Global.Player
 	
 	for buffs in unit.Buffs:
-		if buffs.name == "Dream":
+		if buffs.title == "Dream":
 				var action = {
 					"name": "magic_damage_targets_range", 
 					"caster": unit, 
@@ -638,7 +638,7 @@ static func senheb():
 	ProcessQueue.add_effect(action)
 
 	for buff in unit.Buffs:
-		if buff.name == "Corrosion" or buff.name == "Doom":
+		if buff.title == "Corrosion" or buff.title == "Doom":
 			action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -692,7 +692,7 @@ static func ti():
 	unit.invokes.ti.use = 0
 	
 	for buff in unit.Buffs:
-		if buff.name == "Scorch":
+		if buff.title == "Scorch":
 			action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -821,7 +821,7 @@ static func contemplation():
 	ProcessQueue.add_effect(action)
 	
 	for buff in unit.Buffs:
-		if buff.name != "Poise":
+		if buff.title != "Poise":
 			action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -878,7 +878,7 @@ static func hurah():
 static func yirah():
 	var unit = Global.Player
 	for buff in unit.Buffs:
-		if buff.name == "Sickness" or buff.name == "Entangle" or buff.name == "Freeze":
+		if buff.title == "Sickness" or buff.title == "Entangle" or buff.title == "Freeze":
 			var action = {
 			"name": "remove_buff", 
 			"target": unit, 
@@ -919,7 +919,7 @@ static func moc():
 	var multi = 1
 	var type = source.get_DMG_type(source.weapon_main)
 	for buff in source.Buffs:
-		if buff.name == "Drakeform":
+		if buff.title == "Drakeform":
 			multi += buff.duration
 	if multi > 1:
 		var action = {

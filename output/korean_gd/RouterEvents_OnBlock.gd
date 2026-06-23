@@ -17,7 +17,7 @@ static func check(attacker, defender, weapon, block):
 	if defender_traits.has("PurifyingDisplay"):
 		
 		for buff in unit.Buffs:
-			if buff.name == "Entangle" or buff.name == "Freeze" or buff.name == "Sickness" or buff.name == "Bleed":
+			if buff.title == "Entangle" or buff.title == "Freeze" or buff.title == "Sickness" or buff.title == "Bleed":
 				var action = {
 					"name": "remove_buff", 
 					"target": unit, 

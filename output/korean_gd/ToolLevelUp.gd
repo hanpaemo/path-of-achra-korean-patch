@@ -72,19 +72,19 @@ static func vigor():
 		for buff in unit.Buffs:
 			if buff.harmful == true:
 				
-				if traits.has("Parafrost") and buff.name == "Freeze":
+				if traits.has("Parafrost") and buff.title == "Freeze":
 					pass
-				elif traits.has("MasterEntangle") and buff.name == "Entangle":
+				elif traits.has("MasterEntangle") and buff.title == "Entangle":
 					pass
-				elif traits.has("MasterScorch") and buff.name == "Scorch":
+				elif traits.has("MasterScorch") and buff.title == "Scorch":
 					pass
-				elif traits.has("MasterDoom") and buff.name == "Doom":
+				elif traits.has("MasterDoom") and buff.title == "Doom":
 					pass
-				elif traits.has("MasterBleed") and buff.name == "Bleed":
+				elif traits.has("MasterBleed") and buff.title == "Bleed":
 					pass
-				elif traits.has("Damunja") and buff.name == "Bleed":
+				elif traits.has("Damunja") and buff.title == "Bleed":
 					pass
-				elif traits.has("Acid_Necklace") and buff.name == "Corrosion":
+				elif traits.has("Acid_Necklace") and buff.title == "Corrosion":
 					pass
 				elif traits.has("Torturer") == true:
 					pass

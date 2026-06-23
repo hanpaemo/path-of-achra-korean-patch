@@ -53,7 +53,7 @@ static func check_effects(attacker, defender, weapon, hit):
 
 	for buff in defender.Buffs:
 		
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			if defender_traits.has("chest_gold") == false:
 				var action = {
 					"name": "reduce_buff", 
@@ -70,7 +70,7 @@ static func check_effects(attacker, defender, weapon, hit):
 	if unit.HP < unit.HP_max:
 		if Global.Player.get_traits().has("Humbaba"):
 			for buff in unit.Buffs:
-				if buff.name == "Bloodrage":
+				if buff.title == "Bloodrage":
 					var action = {
 					"name": "heal", 
 					"amount": 5.0 * buff.duration, 
@@ -82,7 +82,7 @@ static func check_effects(attacker, defender, weapon, hit):
 		
 		if attacker_traits.has("Batform"):
 			for buff in unit.Buffs:
-				if buff.name == "Batform":
+				if buff.title == "Batform":
 					var action = {
 					"name": "heal", 
 					"amount": 5 * buff.duration, 
@@ -99,7 +99,7 @@ static func check_effects(attacker, defender, weapon, hit):
 		
 		var new_hit = 1.0
 		for buff in defender.Buffs:
-			if buff.name == "Repulsion":
+			if buff.title == "Repulsion":
 				new_hit += buff.duration
 				
 		new_hit = float(new_hit)
@@ -283,7 +283,7 @@ static func check_effects(attacker, defender, weapon, hit):
 	
 	if attacker_traits.has("FrostKnight"):
 		for buffs in defender.Buffs:
-			if buffs.name == "Freeze":
+			if buffs.title == "Freeze":
 				var action = {
 				"name": "magic_damage_tiles_in_range", 
 				"caster": attacker, 
@@ -310,12 +310,12 @@ static func check_effects(attacker, defender, weapon, hit):
 		if defender.get_buff_names().has("Bleed") and attacker.get_buff_names().has("Bleed"):
 			var stacks = 0.0
 			for buff in defender.Buffs:
-				if buff.name == "Bleed":
+				if buff.title == "Bleed":
 					stacks += float(buff.duration)
 			
 			var self_stacks = 0.0
 			for buff in attacker.Buffs:
-				if buff.name == "Bleed":
+				if buff.title == "Bleed":
 					self_stacks += float(buff.duration)
 					
 			var action = {
@@ -576,7 +576,7 @@ static func check_effects(attacker, defender, weapon, hit):
 	if attacker_traits.has("Chuluma") == true:
 		var trait = attacker_traits.Chuluma
 		for buff in defender.Buffs:
-			if buff.name == "Entangle":
+			if buff.title == "Entangle":
 				var action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -879,7 +879,7 @@ static func check_effects(attacker, defender, weapon, hit):
 			}
 			ProcessQueue.add_effect(action)
 			for buffs in defender.Buffs:
-				if buffs.name == "Doom":
+				if buffs.title == "Doom":
 					action = {
 				"name": "magic_damage_tiles_in_range", 
 				"caster": attacker, 
@@ -893,7 +893,7 @@ static func check_effects(attacker, defender, weapon, hit):
 	
 	if attacker_traits.has("Dianmai") == true:
 		for buffs in attacker.Buffs:
-			if buffs.name == "Evasion":
+			if buffs.title == "Evasion":
 				var action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -917,7 +917,7 @@ static func check_effects(attacker, defender, weapon, hit):
 			}
 			ProcessQueue.add_effect(action)
 			for buffs in defender.Buffs:
-				if buffs.name == "Scorch":
+				if buffs.title == "Scorch":
 					action = {
 					"name": "magic_damage_target", 
 					"target": defender, 
@@ -994,7 +994,7 @@ static func check_effects(attacker, defender, weapon, hit):
 			ProcessQueue.add_effect(action)
 			
 			for buffs in defender.Buffs:
-				if buffs.name == "Entangle":
+				if buffs.title == "Entangle":
 					action = {
 					"name": "magic_damage_target", 
 					"target": defender, 

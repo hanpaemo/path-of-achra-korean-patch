@@ -19,7 +19,7 @@ static func effects(attacker, defender, weapon, armor):
 	if defender_traits.has("PurifyingDisplay"):
 		
 		for buff in unit.Buffs:
-			if buff.name == "Entangle" or buff.name == "Freeze" or buff.name == "Sickness" or buff.name == "Bleed":
+			if buff.title == "Entangle" or buff.title == "Freeze" or buff.title == "Sickness" or buff.title == "Bleed":
 				var action = {
 					"name": "remove_buff", 
 					"target": unit, 
@@ -78,7 +78,7 @@ static func effects(attacker, defender, weapon, armor):
 	if defender_traits.has("VoidChest"):
 			
 			for buff in defender.Buffs:
-				if buff.name == "Stasis":
+				if buff.title == "Stasis":
 					var action = {
 		"name": "magic_damage_targets_range", 
 		"caster": defender, 

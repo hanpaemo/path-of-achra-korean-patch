@@ -32,35 +32,35 @@ static func speed(unit, traits):
 	for buff in unit.Buffs:
 		
 		
-		if buff.name == "Jin-bu":
+		if buff.title == "Jin-bu":
 			mod += 2.0
-		if buff.name == "Freeze":
+		if buff.title == "Freeze":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Entangle":
+		if buff.title == "Entangle":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Charge":
+		if buff.title == "Charge":
 			if traits.has("Ikami"):
 				mod += 1.0 * buff.duration
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			if traits.has("Frenzied"):
 				mod += 1.0 * buff.duration
-		if buff.name == "Dream":
+		if buff.title == "Dream":
 			mod -= 2.0 * buff.duration
-		if buff.name == "Berserk":
+		if buff.title == "Berserk":
 			mod += 1.0 * buff.duration
-		if buff.name == "Jackalform":
+		if buff.title == "Jackalform":
 			mod += 1.0 * buff.duration
-		if buff.name == "Batform":
+		if buff.title == "Batform":
 			mod += 1.0 * buff.duration
-		if buff.name == "Sparkform":
+		if buff.title == "Sparkform":
 			mod += 30.0
-		if buff.name == "Horrorform":
+		if buff.title == "Horrorform":
 			mod += 50.0
 		
-		if buff.name == "Windstrike":
+		if buff.title == "Windstrike":
 			mod += 100.0
 		if traits.has("Champion"):
-			if buff.name == "Poise":
+			if buff.title == "Poise":
 				mod += 1.0 * buff.duration
 		
 	
@@ -115,26 +115,26 @@ static func dodge(unit, traits):
 	
 	var mod = 0.0
 	for buff in unit.Buffs:
-		if buff.name == "Freeze":
+		if buff.title == "Freeze":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Entangle":
+		if buff.title == "Entangle":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Dream":
+		if buff.title == "Dream":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Berserk":
+		if buff.title == "Berserk":
 			mod -= 1.0 * buff.duration
-		if buff.name == "Evasion":
+		if buff.title == "Evasion":
 			mod += 2.0 * buff.duration
-		if buff.name == "Anoint":
+		if buff.title == "Anoint":
 			mod += 1.0 * buff.duration
-		if buff.name == "Snakeform":
+		if buff.title == "Snakeform":
 			mod += 1.0 * buff.duration
-		if buff.name == "Windstrike":
+		if buff.title == "Windstrike":
 			mod += 30.0
-		if buff.name == "Blind":
+		if buff.title == "Blind":
 			mod -= 2.0 * buff.duration
 		if traits.has("Mesmer"):
-			if buff.name == "Repulsion":
+			if buff.title == "Repulsion":
 				mod += 1.0 * buff.duration
 	
 	if traits.has("BheithNochti"):
@@ -182,11 +182,11 @@ static func attack(unit, traits):
 	for buff in unit.Buffs:
 		
 		
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			mod += 1.0 * buff.duration
-		if buff.name == "Poise":
+		if buff.title == "Poise":
 			mod += 1.0 * buff.duration
-		if buff.name == "Blind":
+		if buff.title == "Blind":
 			mod -= 2.0 * buff.duration
 		
 	if traits.has("Aim"):
@@ -216,29 +216,29 @@ static func damage(unit, traits):
 	
 	
 	for buff in unit.Buffs:
-		if buff.name == "Jin-bu":
+		if buff.title == "Jin-bu":
 			mod += 2.0
 		
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			mod += 2.0 * buff.duration
 		
-		if buff.name == "Sickness":
+		if buff.title == "Sickness":
 			mod -= 1.0 * buff.duration
 		
-		if buff.name == "Attune":
+		if buff.title == "Attune":
 			mod += 1.0 * buff.duration
-		if buff.name == "Anoint":
+		if buff.title == "Anoint":
 			mod += 2.0 * buff.duration
 		
 		
-		if buff.name == "Stasis":
+		if buff.title == "Stasis":
 			if traits.has("NullChausses"):
 				mod += 3.0 * buff.duration
-		if buff.name == "Berserk":
+		if buff.title == "Berserk":
 			if traits.has("Berserker"):
 				mod += 2.0 * buff.duration
 		
-		if buff.name == "Jackalform":
+		if buff.title == "Jackalform":
 				mod += 1.0 * buff.duration
 	
 	
@@ -294,19 +294,19 @@ static func block(unit, traits):
 	var mod = 0.0
 	
 	for buff in unit.Buffs:
-		if buff.name == "Berserk":
+		if buff.title == "Berserk":
 			mod -= 10.0 * buff.duration
-		if buff.name == "Corrosion":
+		if buff.title == "Corrosion":
 			mod -= 10.0 * buff.duration
-		if buff.name == "Repulsion":
+		if buff.title == "Repulsion":
 			if traits.has("MasterRepulsion"):
 				mod += buff.duration
-		if buff.name == "Poise":
+		if buff.title == "Poise":
 			mod += 5.0 * buff.duration
-		if buff.name == "Drakeform":
+		if buff.title == "Drakeform":
 			mod += 20.0 * buff.duration
 		
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			if traits.has("GoldenSword"):
 				mod += 10.0 * buff.duration
 	
@@ -356,33 +356,33 @@ static func armor(unit, traits):
 	var mod = 0.0
 	
 	for buff in unit.Buffs:
-		if buff.name == "Poise":
+		if buff.title == "Poise":
 			mod += 5.0 * buff.duration
-		if buff.name == "Attune":
+		if buff.title == "Attune":
 			mod += 20.0 * buff.duration
-		if buff.name == "Refraction":
+		if buff.title == "Refraction":
 			mod += 1.0 * buff.duration
 		
-		if buff.name == "Corrosion":
+		if buff.title == "Corrosion":
 			mod -= 10.0 * buff.duration
-		if buff.name == "Drakeform":
+		if buff.title == "Drakeform":
 			mod += 10.0 * buff.duration
-		if buff.name == "Repulsion":
+		if buff.title == "Repulsion":
 			if traits.has("Intabah"):
 				mod += buff.duration * 1.0
-		if buff.name == "Freeze":
+		if buff.title == "Freeze":
 			if traits.has("Parafrost"):
 				mod += buff.duration * 2.0
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			if traits.has("FlameKnight"):
 				mod += 30.0 * buff.duration
-		if buff.name == "Charge":
+		if buff.title == "Charge":
 			if traits.has("Bolga"):
 				mod += 10.0 * buff.duration
-		if buff.name == "Stasis":
+		if buff.title == "Stasis":
 			if traits.has("VoidHelm"):
 				mod += 10.0 * buff.duration
-		if buff.name == "Doom":
+		if buff.title == "Doom":
 			if traits.has("MasterDoom"):
 				mod += 2.0 * buff.duration
 		

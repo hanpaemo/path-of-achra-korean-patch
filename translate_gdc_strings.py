@@ -1546,10 +1546,58 @@ def apply_translations(text: str) -> str:
     return text
 
 
+BUFF_EXPR = r"\b[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*"
+BUFF_NAME_PAIR_COMPARE_RE = re.compile(
+    rf"(?P<left>{BUFF_EXPR})\.name(?P<op>\s*(?:==|!=)\s*)(?P<right>{BUFF_EXPR})\.name"
+)
+BUFF_NAME_COMPARE_RE = re.compile(rf"(?P<expr>{BUFF_EXPR})\.name(?P<op>\s*(?:==|!=)\s*)")
+BUFF_NAME_ARRAY_APPEND_RE = re.compile(rf"(?P<prefix>\barray\.append\()(?P<expr>{BUFF_EXPR})\.name(?P<suffix>\))")
+BUFFCHECK_NAME_ARG_RE = re.compile(rf"(?P<prefix>\bbuffcheck\.check\()(?P<expr>{BUFF_EXPR})\.name(?P<suffix>\s*,)")
+INTERNAL_BUFF_NAME_ARG_RE = re.compile(
+    rf"(?P<prefix>\b(?:check_effects|buffcheck\.just_draw)\([^)\n]*?)(?P<expr>{BUFF_EXPR})\.name(?P<suffix>\s*,)"
+)
+
+
+def is_buff_expr(expr: str) -> bool:
+    """Return True for expressions that point at buff dictionaries."""
+    return any("buff" in part.lower() for part in expr.split("."))
+
+
+def use_buff_titles_for_internal_keys(text: str) -> str:
+    """Keep translated buff names for display, but use titles for gameplay keys."""
+
+    def replace_pair(match: re.Match) -> str:
+        left = match.group("left")
+        right = match.group("right")
+        if is_buff_expr(left) and is_buff_expr(right):
+            return f"{left}.title{match.group('op')}{right}.title"
+        return match.group(0)
+
+    def replace_compare(match: re.Match) -> str:
+        expr = match.group("expr")
+        if is_buff_expr(expr):
+            return f"{expr}.title{match.group('op')}"
+        return match.group(0)
+
+    def replace_argument(match: re.Match) -> str:
+        expr = match.group("expr")
+        if is_buff_expr(expr):
+            return f"{match.group('prefix')}{expr}.title{match.group('suffix')}"
+        return match.group(0)
+
+    text = BUFF_NAME_PAIR_COMPARE_RE.sub(replace_pair, text)
+    text = BUFF_NAME_COMPARE_RE.sub(replace_compare, text)
+    text = BUFF_NAME_ARRAY_APPEND_RE.sub(replace_argument, text)
+    text = BUFFCHECK_NAME_ARG_RE.sub(replace_argument, text)
+    text = INTERNAL_BUFF_NAME_ARG_RE.sub(replace_argument, text)
+    return text
+
+
 def translate_file(src: Path, dst: Path) -> bool:
     """Read a .gd file, translate, and write to dst. Return True if changed."""
     original = src.read_text(encoding="utf-8")
     translated = apply_translations(original)
+    translated = use_buff_titles_for_internal_keys(translated)
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(translated, encoding="utf-8")
     return translated != original
@@ -1579,9 +1627,11 @@ def compile_gd(gd_path: Path, output_dir: Path) -> Path | None:
 
 def main():
     KOREAN_DIR.mkdir(parents=True, exist_ok=True)
+    if COMPILED_DIR.exists():
+        shutil.rmtree(COMPILED_DIR)
     COMPILED_DIR.mkdir(parents=True, exist_ok=True)
 
-    translated_files = []
+    compiled_files = []
     skipped_files = []
     failed_files = []
 
@@ -1594,19 +1644,18 @@ def main():
         dst = KOREAN_DIR / local_name
         changed = translate_file(src, dst)
 
-        if changed:
-            gdc = compile_gd(dst, COMPILED_DIR)
-            if gdc:
-                translated_files.append((res_path, local_name, gdc.name))
-            else:
-                failed_files.append((res_path, local_name, "compile failed"))
+        gdc = compile_gd(dst, COMPILED_DIR)
+        if gdc:
+            compiled_files.append((res_path, local_name, gdc.name, changed))
         else:
-            skipped_files.append((res_path, local_name, "no changes"))
+            failed_files.append((res_path, local_name, "compile failed"))
 
     print("\n" + "=" * 60)
-    print(f"TRANSLATED & COMPILED: {len(translated_files)}")
-    for res_path, local_name, gdc_name in translated_files:
-        print(f"  {res_path} -> {gdc_name}")
+    print(f"COMPILED: {len(compiled_files)}")
+    print(f"CHANGED: {sum(1 for _, _, _, changed in compiled_files if changed)}")
+    for res_path, local_name, gdc_name, changed in compiled_files:
+        marker = "changed" if changed else "unchanged"
+        print(f"  {res_path} -> {gdc_name} ({marker})")
 
     print(f"\nSKIPPED: {len(skipped_files)}")
     for res_path, local_name, reason in skipped_files:
@@ -1620,7 +1669,7 @@ def main():
     print("\n\n# Add to build_korean_patch.py GDC_REPLACE_MAP:")
     print("GDC_REPLACE_MAP = {")
     print('    "res://translate.gdc": "translate-ko.gdc",')
-    for res_path, local_name, gdc_name in translated_files:
+    for res_path, local_name, gdc_name, _changed in compiled_files:
         print(f'    "{res_path}": "{gdc_name}",')
     print("}")
 

@@ -7,7 +7,7 @@ static func check(unit, tile_start, tile_end):
 	var moving = false
 	
 	for buff in unit.Buffs:
-		if buff.name == "Beastform":
+		if buff.title == "Beastform":
 				var duration = 1
 				var action = {
 					"name": "reduce_buff", 
@@ -86,7 +86,7 @@ static func check_move(unit, tile_start, tile_end):
 	
 	for buff in buffs:
 		
-		if buff.name == "Poise":
+		if buff.title == "Poise":
 			if unit_traits.has("Champion") == true and unit.get_range_attack(unit.weapon_main) == 1:
 				pass
 			else:
@@ -99,7 +99,7 @@ static func check_move(unit, tile_start, tile_end):
 		}
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Meditate":
+		if buff.title == "Meditate":
 			
 				
 		
@@ -114,7 +114,7 @@ static func check_move(unit, tile_start, tile_end):
 		
 		
 		
-		if buff.name == "Dream" or buff.name == "Treeform":
+		if buff.title == "Dream" or buff.title == "Treeform":
 			var action = {
 					"name": "remove_buff", 
 					"target": unit, 
@@ -123,7 +123,7 @@ static func check_move(unit, tile_start, tile_end):
 		}
 			ProcessQueue.add_effect(action)
 		
-		if buff.name == "Entangle":
+		if buff.title == "Entangle":
 			
 			if unit_traits.has("MasterEntangle") == false:
 				
@@ -151,7 +151,7 @@ static func check_move(unit, tile_start, tile_end):
 		
 			
 		
-		if buff.name == "Bleed":
+		if buff.title == "Bleed":
 			if unit_traits.has("MasterBleed") == false and unit_traits.has("Damunja") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -185,7 +185,7 @@ static func check_move(unit, tile_start, tile_end):
 					ProcessQueue.add_effect(action2)
 					
 					for buff in unit.Buffs:
-						if buff.name == "Corrosion":
+						if buff.title == "Corrosion":
 							var action = {
 							"name": "heal", 
 							"amount": buff.duration, 
@@ -428,7 +428,7 @@ static func check_move(unit, tile_start, tile_end):
 	if unit_traits.has("PurifyingStep"):
 		
 		for buff in unit.Buffs:
-			if buff.name == "Doom" or buff.name == "Corrosion" or buff.name == "Scorch":
+			if buff.title == "Doom" or buff.title == "Corrosion" or buff.title == "Scorch":
 				var action = {
 					"name": "remove_buff", 
 					"target": unit, 
@@ -738,7 +738,7 @@ static func check_wait(unit):
 	var buffs = unit.Buffs
 	for buff in buffs:
 		
-		if buff.name == "Charge":
+		if buff.title == "Charge":
 			if unit.get_traits().has("Tamasa") == false:
 				var action = {
 					"name": "reduce_buff", 
@@ -750,7 +750,7 @@ static func check_wait(unit):
 				ProcessQueue.add_effect(action)
 		
 		
-		if buff.name == "Evasion":
+		if buff.title == "Evasion":
 				var action = {
 					"name": "reduce_buff", 
 					"target": unit, 
@@ -761,7 +761,7 @@ static func check_wait(unit):
 				ProcessQueue.add_effect(action)
 		
 		
-		if buff.name == "Freeze":
+		if buff.title == "Freeze":
 			if unit.get_traits().has("Parafrost") == false and unit.get_traits().has("VoidMage") == false:
 				var action = {
 					"name": "magic_damage_target", 
@@ -775,7 +775,7 @@ static func check_wait(unit):
 				ProcessQueue.add_effect(action)
 	
 		
-		if buff.name == "Dream":
+		if buff.title == "Dream":
 					
 						
 						var action = {
@@ -853,7 +853,7 @@ static func check_wait(unit):
 					if enemy.residence.tileset.title == "acid":
 						
 						for buff in enemy.Buffs:
-							if buff.name == "Corrosion":
+							if buff.title == "Corrosion":
 								buff_duration += buff.duration
 								
 					
@@ -1620,7 +1620,7 @@ static func check_wait(unit):
 				
 			for check_buff in unit.Buffs:
 				
-				if check_buff.name == "Inflame":
+				if check_buff.title == "Inflame":
 					var action = {
 					"name": "magic_damage_target", 
 					"target": unit, 
@@ -1675,7 +1675,7 @@ static func check_wait(unit):
 				
 				
 				
-				if check_buff.name == "Charge":
+				if check_buff.title == "Charge":
 					var action = {
 					"name": "magic_damage_target", 
 					"target": unit, 
@@ -1760,13 +1760,13 @@ static func check_wait(unit):
 			
 			var self_stacks = 0.0
 			for buff in unit.Buffs:
-				if buff.name == "Freeze":
+				if buff.title == "Freeze":
 					self_stacks += float(buff.duration)
 			for enemy in Global.Enemies:
 				
 					var stacks = 0.0
 					for buff in enemy.Buffs:
-						if buff.name == "Freeze":
+						if buff.title == "Freeze":
 							stacks += float(buff.duration)
 				
 				
@@ -1893,7 +1893,7 @@ static func check_wait(unit):
 	if unit.get_traits().has("Hat_Psychic"):
 		var damage = 0.0
 		for buff in unit.Buffs:
-			if buff.name == "Repulsion":
+			if buff.title == "Repulsion":
 				damage += float(buff.duration)
 		
 		if damage >= 1.0:
@@ -1925,7 +1925,7 @@ static func check_wait(unit):
 		for enemy in Global.Enemies:
 			if enemy.get_buff_names().has("Sickness"):
 				for buff in enemy.Buffs:
-					if buff.name == "Sickness":
+					if buff.title == "Sickness":
 						var action = {
 					"name": "magic_damage_target", 
 					"target": enemy, 
@@ -2233,7 +2233,7 @@ static func check_wait(unit):
 			ProcessQueue.add_effect(action)
 	if unit.get_traits().has("Fawdaa"):
 		for buff in unit.Buffs:
-					if buff.name == "Stasis":
+					if buff.title == "Stasis":
 						var action = {
 						"name": "remove_buff", 
 						"target": unit, 

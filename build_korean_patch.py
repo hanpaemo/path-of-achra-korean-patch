@@ -596,9 +596,11 @@ def build_gdc_replacements(
 
     replacements: dict[str, ReplacementAsset] = {}
     replaced = []
+    missing = []
     for pack_path, compiled_name in GDC_REPLACE_MAP.items():
         source_path = compiled_dir / compiled_name
         if not source_path.exists():
+            missing.append((pack_path, source_path))
             continue
         gdc_data = source_path.read_bytes()
         output_path = patch_data_dir / relative_output_path(pack_path)
@@ -606,6 +608,12 @@ def build_gdc_replacements(
         output_path.write_bytes(gdc_data)
         replacements[pack_path] = ReplacementAsset(pack_path, output_path, gdc_data, "gdc")
         replaced.append(pack_path)
+
+    if missing:
+        preview = "\n".join(f"{pack_path} <- {source_path}" for pack_path, source_path in missing[:20])
+        if len(missing) > 20:
+            preview += f"\n... and {len(missing) - 20} more"
+        raise FileNotFoundError(f"Missing compiled GDC replacement(s):\n{preview}")
 
     summary: dict[str, object] = {
         "enabled": bool(replaced),

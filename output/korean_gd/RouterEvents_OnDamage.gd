@@ -447,7 +447,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 		if dmg_type == "slash" or dmg_type == "blunt" or dmg_type == "pierce" or dmg_type == "blood":
 			
 				for buff in attacker.Buffs:
-					if buff.name == "Bleed":
+					if buff.title == "Bleed":
 						var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1042,7 +1042,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 			if Global.Enemies.has(attacker) == true:
 				var multi = 1
 				for buff in defender.Buffs:
-					if buff.name == "Bleed":
+					if buff.title == "Bleed":
 						multi += buff.duration
 				var action = {
 				"name": "magic_damage_tiles_in_path", 
@@ -1704,7 +1704,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 	if attacker_traits.has("Psychonaut"):
 		if dmg_type == "astral":
 			for buff in attacker.Buffs:
-					if buff.name == "Stasis":
+					if buff.title == "Stasis":
 						var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1717,7 +1717,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 		
 			if dmg_type == "psychic" or dmg_type == "astral":
 				for buff in attacker.Buffs:
-					if buff.name == "Stasis":
+					if buff.title == "Stasis":
 						var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1743,7 +1743,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 		
 			if dmg_type == "death" or dmg_type == "poison":
 				for buff in attacker.Buffs:
-					if buff.name == "Doom" or buff.name == "Sickness":
+					if buff.title == "Doom" or buff.title == "Sickness":
 						var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1770,7 +1770,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 			if dmg_type == "fire" or dmg_type == "lightning":
 				
 				for buff in attacker.Buffs:
-					if buff.name == "Freeze" or buff.name == "Scorch":
+					if buff.title == "Freeze" or buff.title == "Scorch":
 						var action = {
 						"name": "remove_buff", 
 						"target": attacker, 
@@ -1823,7 +1823,7 @@ static func check_effects(dmg, dmg_type, attacker, defender):
 	
 	if defender_buff_names.has("Protection"):
 		for buff in defender.Buffs:
-			if buff.name == "Protection" and attacker != defender:
+			if buff.title == "Protection" and attacker != defender:
 				if Global.rng.randi_range(1, 10) <= 2:
 					var action = {
 					"name": "remove_buff", 
@@ -1936,7 +1936,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "astral" or dmg_type == "pierce" or dmg_type == "slash" or dmg_type == "blunt":
 			if attacker_buff_names.has("Poise"):
 				for buff in attacker.Buffs:
-					if buff.name == "Poise":
+					if buff.title == "Poise":
 						total_increase += buff.duration * 3.0
 						mod_info.string.append(attacker_traits.Sahasi.Name + " +" + str(int(buff.duration * 3.0)))
 						
@@ -1946,7 +1946,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "astral" or dmg_type == "fire" or dmg_type == "lightning":
 			if defender_buff_names.has("Scorch"):
 				for buff in defender.Buffs:
-					if buff.name == "Scorch":
+					if buff.title == "Scorch":
 						var increase = float(attacker_traits.Pyromancy.Level) * float(buff.duration)
 						total_increase += increase
 						mod_info.string.append(attacker_traits.Pyromancy.Name + " +" + str(int(increase)))
@@ -1957,7 +1957,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "poison" or dmg_type == "slash" or dmg_type == "blunt" or dmg_type == "pierce":
 			if defender_buff_names.has("Entangle"):
 				for buff in defender.Buffs:
-					if buff.name == "Entangle":
+					if buff.title == "Entangle":
 						var increase = 10.0 * float(buff.duration)
 						total_increase += increase
 						mod_info.string.append(attacker_traits.EarthMage.Name + " +" + str(int(increase)))
@@ -2003,7 +2003,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "poison" or dmg_type == "death":
 			if defender_buff_names.has("Sickness"):
 				for buff in defender.Buffs:
-					if buff.name == "Sickness":
+					if buff.title == "Sickness":
 						var increase = float(attacker_traits.Morbumancy.Level) * float(buff.duration)
 						total_increase += increase
 						mod_info.string.append(attacker_traits.Morbumancy.Name + " +" + str(int(increase)))
@@ -2013,7 +2013,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "poison" or dmg_type == "fire":
 			if defender_buff_names.has("Corrosion"):
 				for buff in defender.Buffs:
-					if buff.name == "Corrosion":
+					if buff.title == "Corrosion":
 						total_increase += buff.duration
 						mod_info.string.append(attacker_traits.Slime.Name + " +" + str(int(buff.duration)))
 						
@@ -2048,7 +2048,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "pierce" or dmg_type == "slash" or dmg_type == "blunt" or dmg_type == "ice":
 			if defender_buff_names.has("Freeze"):
 				for buff in defender.Buffs:
-					if buff.name == "Freeze":
+					if buff.title == "Freeze":
 						var increase = float(attacker_traits.Cryomancy.Level) * float(buff.duration)
 						total_increase += increase
 						mod_info.string.append(attacker_traits.Cryomancy.Name + " +" + str(int(increase)))
@@ -2072,15 +2072,15 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		
 	
 	for buff in attacker.Buffs:
-		if buff.name == "Charge":
+		if buff.title == "Charge":
 				total_increase += 5.0 * buff.duration
 				mod_info.string.append("Charge +" + str(int(5.0 * buff.duration)))
 		
-		if buff.name == "Meditate":
+		if buff.title == "Meditate":
 				total_increase += 10.0 * buff.duration
 				mod_info.string.append("Meditate +" + str(int(10.0 * buff.duration)))
 				
-		if buff.name == "Attune":
+		if buff.title == "Attune":
 				var increase = float(buff.duration) * 0.01
 				increase *= dmg
 				increase = float(int(increase))
@@ -2088,7 +2088,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 					total_increase += increase
 					mod_info.string.append("동조 +" + str(int(increase)))
 		
-		if buff.name == "Crowform":
+		if buff.title == "Crowform":
 				var increase = float(buff.duration) * 0.01
 				increase *= dmg
 				increase = float(int(increase))
@@ -2102,7 +2102,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "psychic" or dmg_type == "astral":
 			if attacker_buff_names.has("Repulsion"):
 				for buff in attacker.Buffs:
-					if buff.name == "Repulsion":
+					if buff.title == "Repulsion":
 						var increase = float(attacker_traits.MasterRepulsion.Level) * float(buff.duration)
 						total_increase += increase
 						mod_info.string.append(attacker_traits.MasterRepulsion.Name + " +" + str(int(increase)))
@@ -2112,14 +2112,14 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		
 			if attacker_buff_names.has("Corrosion"):
 				for buff in attacker.Buffs:
-					if buff.name == "Corrosion":
+					if buff.title == "Corrosion":
 						total_increase += buff.duration * 5.0
 						mod_info.string.append(attacker_traits.Acid_Necklace.Name + " +" + str(int(buff.duration * 5.0)))
 	if attacker_traits.has("Frenzied"):
 		
 			if attacker_buff_names.has("Inflame"):
 				for buff in attacker.Buffs:
-					if buff.name == "Inflame":
+					if buff.title == "Inflame":
 						total_increase += buff.duration * 5.0
 						mod_info.string.append(attacker_traits.Frenzied.Name + " +" + str(int(buff.duration * 5.0)))
 	
@@ -2129,11 +2129,11 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 				var increase = 0.0
 			
 				for buff in defender.Buffs:
-					if buff.name == "Freeze":
+					if buff.title == "Freeze":
 						increase += float(buff.duration * 0.01)
 			
 				for buff in attacker.Buffs:
-					if buff.name == "Freeze":
+					if buff.title == "Freeze":
 						increase += float(buff.duration * 0.01)
 				increase *= dmg
 				increase = float(int(increase))
@@ -2175,7 +2175,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		if dmg_type == "fire":
 			if attacker.get_buff_names().has("Inflame"):
 				for buff in attacker.Buffs:
-					if buff.name == "Inflame":
+					if buff.title == "Inflame":
 						var increase = float(5 * buff.duration)
 						if increase > 0.0:
 							total_increase += increase
@@ -2195,7 +2195,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 	if defender_buff_names.has("Mark"):
 		if dmg_type == "pierce" or dmg_type == "slash" or dmg_type == "blunt":
 			for buff in defender.Buffs:
-				if buff.name == "Mark":
+				if buff.title == "Mark":
 					var increase = buff.duration * 0.1
 					increase *= dmg
 					increase = float(int(increase))
@@ -2286,7 +2286,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		
 	if defender_buff_names.has("Grace"):
 		for buff in defender.Buffs:
-			if buff.name == "Grace":
+			if buff.title == "Grace":
 					
 				var increase = float(5.0 * buff.duration)
 				if attacker != defender:
@@ -2308,7 +2308,7 @@ static func check_resists(dmg, dmg_type, attacker, defender, is_check, mod_info)
 		
 		if defender_buff_names.has("Agony"):
 			for buff in defender.Buffs:
-				if buff.name == "Agony":
+				if buff.title == "Agony":
 					if float(dmg) < float(defender.HP_max) * 0.02:
 						mod_info.string.append("Agony +" + str(int((float(defender.HP_max) * 0.02) - dmg)))
 						dmg = float(defender.HP_max) * 0.02

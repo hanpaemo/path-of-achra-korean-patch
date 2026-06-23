@@ -391,7 +391,7 @@ static func clean(queue):
 				to_delete.erase(action)
 		
 		if action["name"] == "add_buff":
-			if action.buff.name == "Protection":
+			if action.buff.title == "Protection":
 				if action.buff.target.is_dead() == false:
 					if action.buff.target.get_buff_names().has("Protection"):
 						to_delete.erase(action)

@@ -7,7 +7,7 @@ static func check(buff):
 	
 	var abort = false
 	
-	if buff.name == "Plague":
+	if buff.title == "Plague":
 		if buff.target.get_traits().has("Plaguemancer"):
 			abort = true
 	
@@ -21,7 +21,7 @@ static func modify_duration(buff):
 
 static func truecheck(buff):
 	var max_duration = 1000000
-	if buff.name == "Protection":
+	if buff.title == "Protection":
 		max_duration = 1
 	
 	buff = cloner.clone_dict(buff)
@@ -42,12 +42,12 @@ static func truecheck(buff):
 	var form_inherit_msg = ""
 	if buff.unique == true and buff.duration > 0:
 		for buff_current in buff.target.Buffs:
-			if buff_current.name == buff.name:
+			if buff_current.title == buff.title:
 				
 				repeated = true
 				
 				
-				check_effects(buff_current, buff, buff.name, buff.source, buff.target, buff.duration, repeated, mod_info)
+				check_effects(buff_current, buff, buff.title, buff.source, buff.target, buff.duration, repeated, mod_info)
 				buff_current.duration += buff.duration
 				
 				if mod_info.string.size() and ToolSettings.settings_data.log_detail == true:
@@ -90,7 +90,7 @@ static func truecheck(buff):
 		var buff_current = buff
 		
 		
-		check_effects(buff_current, buff, buff.name, buff.source, buff.target, buff.duration, repeated, mod_info)
+		check_effects(buff_current, buff, buff.title, buff.source, buff.target, buff.duration, repeated, mod_info)
 		
 		
 		if mod_info.string.size() and ToolSettings.settings_data.log_detail == true:
@@ -129,7 +129,7 @@ static func truecheck(buff):
 
 static func check_effects(buff_current, buff, name, source, target, duration, _form_repeated, mod_info):
 	
-	buffcheck.just_draw(buff.name, buff.duration, buff.target, buff.source, buff)
+	buffcheck.just_draw(buff.title, buff.duration, buff.target, buff.source, buff)
 	
 	var source_traits = source.get_traits()
 	var target_traits = target.get_traits()
@@ -147,7 +147,7 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 	
 	
 	
-	if buff.name == "Paralysis":
+	if buff.title == "Paralysis":
 		if buff.target.get_buff_names().has("Paralysis") == false:
 			buff.target.tick = 1.0
 	
@@ -171,7 +171,7 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 		mod_info.string.append(source_traits.Priest.Name + " +" + str(int(increase)))
 	
 	if source_traits.has("Warrior"):
-		if buff.name == "Poise":
+		if buff.title == "Poise":
 			buff.duration += 3
 			mod_info.string.append(source_traits.Warrior.Name + " +3")
 	
@@ -181,7 +181,7 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 			
 	
 	if source_traits.has("Arjana"):
-		if buff.name == "Blind" or buff.name == "Freeze":
+		if buff.title == "Blind" or buff.title == "Freeze":
 			var modification = float(int(source.get_total_DEX() / 5.0))
 			if modification >= 1.0:
 				buff.duration += modification
@@ -193,12 +193,12 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 			mod_info.string.append(source_traits.Yu.Name + " +5")
 	
 	if source_traits.has("Warlock"):
-		if buff.name == "Inflame":
+		if buff.title == "Inflame":
 			buff.duration += 2
 			mod_info.string.append(source_traits.Warlock.Name + " +2")
 	
 	if source_traits.has("Ascetic"):
-		if buff.name == "Meditate":
+		if buff.title == "Meditate":
 			buff.duration += 1
 			mod_info.string.append(source_traits.Ascetic.Name + " +1")
 	
@@ -545,7 +545,7 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 			if target_traits.has("Parafrost") == false:
 				var damage = duration_scaling
 				for buff in target.Buffs:
-					if buff.name == "Scorch" or buff.name == "Freeze":
+					if buff.title == "Scorch" or buff.title == "Freeze":
 						damage += float(buff.duration)
 			
 				var action = {
@@ -846,7 +846,7 @@ static func check_effects(buff_current, buff, name, source, target, duration, _f
 			if Global.Player.get_armor_list().size() == 1 and Global.Player.armor_head != null:
 				var crow_damage = 0.0
 				for buff in source.Buffs:
-					if buff.name == "Crowform":
+					if buff.title == "Crowform":
 						crow_damage += float(buff.duration)
 				
 				var crow_buff = cloner.clone_dict(LBuffs.buff_data.Crowform)

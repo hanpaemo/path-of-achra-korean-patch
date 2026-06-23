@@ -243,7 +243,7 @@ func get_resist(label):
 		resist += type[key]
 	
 	for buff in Buffs:
-		if buff.name == "Plague":
+		if buff.title == "Plague":
 			if resist > 0:
 				resist -= buff.duration
 				if resist < 0: resist = 0
@@ -497,7 +497,7 @@ func hp_percent():
 func get_buff_names():
 	var array = []
 	for buff in Buffs:
-		array.append(buff.name)
+		array.append(buff.title)
 	return array
 	
 func buffs_tick():
@@ -524,7 +524,7 @@ func buffs_tick():
 	
 	for buff in Buffs:
 		buff.duration -= 1
-		buffcheck.check(buff.name, buff.duration, buff.target, buff.source, buff)
+		buffcheck.check(buff.title, buff.duration, buff.target, buff.source, buff)
 
 
 
@@ -693,7 +693,7 @@ func check_player_extra_attacks_defunct(Player, tile_start, tile_end, tile_range
 			if Player.get_buff_names().has("Entangle"):
 				var repeat = 0
 				for buff in Player.Buffs:
-					if buff.name == "Entangle":
+					if buff.title == "Entangle":
 						repeat = buff.duration / 5
 				if repeat > 0:
 					for n in repeat:

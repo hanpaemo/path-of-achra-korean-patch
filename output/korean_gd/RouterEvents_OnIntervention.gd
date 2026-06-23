@@ -58,7 +58,7 @@ static func check(unit):
 	if traits.has("Slime"):
 		for enemy in Global.Enemies:
 			for buff in enemy.Buffs:
-				if buff.name == "Corrosion":
+				if buff.title == "Corrosion":
 					
 					var action = {
 					"name": "magic_damage_target", 
@@ -92,7 +92,7 @@ static func check(unit):
 	if traits.has("Snakeform"):
 			
 				for buff in unit.Buffs:
-					if buff.name == "Snakeform":
+					if buff.title == "Snakeform":
 						var action = {
 					"name": "heal", 
 					"amount": 10 * buff.duration, 

@@ -24,7 +24,7 @@ static func effects(caster, label, god):
 	for buff in buffs:
 		
 		
-		if buff.name == "Beastform":
+		if buff.title == "Beastform":
 				var duration = 1
 				var action = {
 					"name": "reduce_buff", 
@@ -35,7 +35,7 @@ static func effects(caster, label, god):
 		}
 				ProcessQueue.add_effect(action)
 		
-		if buff.name == "Attune":
+		if buff.title == "Attune":
 			if caster.get_traits().has("Naqui"):
 				var amount = int(float(buff.duration * 0.2))
 				if amount > 30: amount = 30
@@ -203,7 +203,7 @@ static func effects(caster, label, god):
 				ProcessQueue.add_effect(action)
 				
 				for checkbuff in unit.Buffs:
-					if checkbuff.name == "Berserk":
+					if checkbuff.title == "Berserk":
 						action = {
 	"name": "magic_damage_tiles_in_path_to_targets_in_range", 
 	"caster": unit, 
@@ -337,7 +337,7 @@ static func effects(caster, label, god):
 				var amount = 1
 				var buff_scaling = 0.0
 				for buff in unit.Buffs:
-					if buff.name == "Dream":
+					if buff.title == "Dream":
 						buff_scaling = float(buff.duration)
 						amount += buff.duration
 						if amount > 5: amount = 5
@@ -549,7 +549,7 @@ static func effects(caster, label, god):
 			
 			
 			for buff in unit.Buffs:
-				if buff.name == "Meditate":
+				if buff.title == "Meditate":
 					for n in traits.AuroraChant.Level:
 						var action = {
 				"name": "magic_damage_target_closest", 
@@ -627,7 +627,7 @@ static func effects(caster, label, god):
 	if caster.get_traits().has("TurbanAbdi"):
 		
 		for buff in unit.Buffs:
-			if buff.name == "Doom" or buff.name == "Sickness" or buff.name == "Corrosion":
+			if buff.title == "Doom" or buff.title == "Sickness" or buff.title == "Corrosion":
 				var action = {
 					"name": "remove_buff", 
 					"target": caster, 
@@ -719,7 +719,7 @@ static func effects(caster, label, god):
 			if Global.Enemies.size() > 0:
 				var damage = 0.0
 				for buff in unit.Buffs:
-					if buff.name == "Inflame":
+					if buff.title == "Inflame":
 						damage += buff.duration * 10.0
 						damage = float(damage)
 				

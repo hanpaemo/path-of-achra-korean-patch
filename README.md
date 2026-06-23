@@ -1,10 +1,10 @@
-# Path of Achra 한국어 패치 v1.3
+# Path of Achra 한국어 패치 v1.4
 
 ![Path of Achra 한국어 패치](1.jpg)
 
 **Path of Achra**의 비공식 한국어 패치입니다.
 
-- **최신 버전**: `v1.3`
+- **최신 버전**: `v1.4`
 - **게임**: [Path of Achra](https://store.steampowered.com/app/2128270/Path_of_Achra/) (Steam)
 - **엔진**: Godot 3.5.2
 - **번역 범위**: JSON 데이터 테이블 + GDScript 하드코딩 문자열 + TSCN UI 라벨
@@ -22,16 +22,15 @@
 
 ## 다운로드
 
-- [GitHub Release v1.3](https://github.com/hanpaemo/path-of-achra-korean-patch/releases/tag/v1.3)
+- [GitHub Release v1.4](https://github.com/hanpaemo/path-of-achra-korean-patch/releases/tag/v1.4)
 - 권장 파일: `PathofAchra-ko-full.pck`
 
 ## 최신 변경 사항
 
-- 한글 패치 적용 시 기도가 충전되지 않던 문제 수정
-- `평정`, `동조` 용어 통일 및 관련 설명문 정리
-- 전투 중 버프 팝업에 적용량 표시 추가
-- `순간이동`, 시구 하단 출처, 트레잇 화면 잔여 영문 수정
-- 내부 식별자 필드 보호 검증 추가로 동일 계열 회귀 방지
+- 한글 패치 적용 시 캐릭터시트/인벤토리/호버 UI에서 버프 기반 스탯 상승이 반영되지 않던 문제 수정
+- `평정` 등 버프 표시명은 한국어로 유지하면서 내부 판정은 원문 식별자 기준으로 동작하도록 보정
+- `ToolStatMods.gdc`, `StatePlayerSheet.gdc` 등 필수 스크립트 누락 방지 검증 강화
+- 전체 GDScript 교체 대상 재컴파일로 동일 계열 회귀 방지
 
 ## 설치 방법
 
@@ -54,6 +53,13 @@
 - 문제가 있으면 [Issues](../../issues)에 제보해주세요.
 
 ## 변경 이력
+
+### v1.4
+
+- 한글화된 버프 이름 때문에 내부 버프 판정이 실패하던 문제 수정
+- 챔피언 특수퍽의 평정 스택당 속도 보너스 등 버프 기반 스탯 표시 복구
+- 전투/스탯 계산용 GDScript는 `buff.title` 기준으로 내부 식별자를 비교하도록 보정
+- 매핑된 GDC 교체 파일이 누락되면 빌드가 실패하도록 검증 강화
 
 ### v1.3
 

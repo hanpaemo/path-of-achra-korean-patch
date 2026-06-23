@@ -462,7 +462,7 @@ static func check_effects(dying_unit, killer):
 	if killer.get_traits().has("Horror"):
 		var msg = killer.get_traits().Horror.Name
 		for fr_buff in killer.Buffs:
-				if fr_buff.name == "Horrorform":
+				if fr_buff.title == "Horrorform":
 					var action = {
 				"name": "magic_damage_tiles_in_range", 
 				"caster": killer, 
@@ -494,7 +494,7 @@ static func check_effects(dying_unit, killer):
 	if dying_unit.object_type != "player":
 		if Global.Player.get_traits().has("Vengati"):
 			for fr_buff in dying_unit.Buffs:
-				if fr_buff.name == "Sickness":
+				if fr_buff.title == "Sickness":
 					var buff = cloner.clone_dict(LBuffs.buff_data.Repulsion)
 					buff["target"] = Global.Player
 					buff["source"] = Global.Player
@@ -526,7 +526,7 @@ static func check_effects(dying_unit, killer):
 	
 		if Global.Player.get_traits().has("Doomsayer") and dying_unit.object_type == "enemy":
 			for fr_buff in dying_unit.Buffs:
-				if fr_buff.name == "Doom":
+				if fr_buff.title == "Doom":
 					var buff = cloner.clone_dict(LBuffs.buff_data.Doom)
 					buff["target"] = Global.Player
 					buff["source"] = Global.Player
@@ -616,7 +616,7 @@ static func check_effects(dying_unit, killer):
 	
 	if killer.get_traits().has("Upuat"):
 		for buff in killer.Buffs:
-			if buff.name == "Jackalform":
+			if buff.title == "Jackalform":
 				var unit = killer
 				var action = {
 			"name": "heal", 
@@ -815,7 +815,7 @@ static func check_effects(dying_unit, killer):
 	if killer.get_traits().has("VoidMage"):
 		if int(killer.get_total_weight()) <= int(killer.get_total_STR()):
 			for buff in killer.Buffs:
-				if buff.name == "Freeze":
+				if buff.title == "Freeze":
 					var action = {
 						"name": "remove_buff", 
 						"target": killer, 
@@ -934,7 +934,7 @@ static func check_effects(dying_unit, killer):
 			
 				var crow_damage = 0.0
 				for buff in killer.Buffs:
-					if buff.name == "Crowform":
+					if buff.title == "Crowform":
 						crow_damage += float(buff.duration)
 				
 				var crow_buff = cloner.clone_dict(LBuffs.buff_data.Crowform)

@@ -44,21 +44,21 @@ static func check(unit):
 			
 			
 			if buff.harmful == true:
-				if traits.has("Parafrost") and buff.name == "Freeze":
+				if traits.has("Parafrost") and buff.title == "Freeze":
 					pass
-				elif traits.has("VoidMage") and buff.name == "Freeze":
+				elif traits.has("VoidMage") and buff.title == "Freeze":
 					pass
-				elif traits.has("MasterEntangle") and buff.name == "Entangle":
+				elif traits.has("MasterEntangle") and buff.title == "Entangle":
 					pass
-				elif traits.has("MasterScorch") and buff.name == "Scorch":
+				elif traits.has("MasterScorch") and buff.title == "Scorch":
 					pass
-				elif traits.has("MasterDoom") and buff.name == "Doom":
+				elif traits.has("MasterDoom") and buff.title == "Doom":
 					pass
-				elif traits.has("MasterBleed") and buff.name == "Bleed":
+				elif traits.has("MasterBleed") and buff.title == "Bleed":
 					pass
-				elif traits.has("Damunja") and buff.name == "Bleed":
+				elif traits.has("Damunja") and buff.title == "Bleed":
 					pass
-				elif traits.has("Acid_Necklace") and buff.name == "Corrosion":
+				elif traits.has("Acid_Necklace") and buff.title == "Corrosion":
 					pass
 				elif traits.has("Torturer") == true:
 					pass
@@ -80,7 +80,7 @@ static func check(unit):
 			if buff.harmful == true:
 				var rng = Global.rng
 				if rng.randi_range(1, 100) < unit.type.size:
-					if buff.name == "Doom" and Global.Player.get_traits().has("Doomsayer"):
+					if buff.title == "Doom" and Global.Player.get_traits().has("Doomsayer"):
 						pass
 					else:
 						var action = {
@@ -95,13 +95,13 @@ static func check(unit):
 	
 	
 	for buff in unit.Buffs:
-			if buff.name == "Scorch":
+			if buff.title == "Scorch":
 				buffcheck.burn(buff.duration, buff.target, buff.source, null)
-			if buff.name == "Sickness":
+			if buff.title == "Sickness":
 				buffcheck.poison(buff.duration, buff.target, buff.source, null)
-			if buff.name == "Plague":
+			if buff.title == "Plague":
 				buffcheck.plague(buff.duration, buff.target, buff.source, null)
-			if buff.name == "Stasis":
+			if buff.title == "Stasis":
 						if traits.has("Qamar"):
 							var action = {
 					"name": "remove_buff", 
@@ -184,7 +184,7 @@ static func check(unit):
 		if Global.Enemies.size() > 0:
 			
 			for buff in unit.Buffs:
-				if buff.name == "Meditate":
+				if buff.title == "Meditate":
 					for n in traits.AuroraChant.Level:
 						var action = {
 				"name": "magic_damage_target_closest", 
@@ -321,7 +321,7 @@ static func check(unit):
 				
 			for check_buff in unit.Buffs:
 				
-				if check_buff.name == "Corrosion":
+				if check_buff.title == "Corrosion":
 					
 					var action = {
 					"name": "magic_damage_target", 
@@ -607,7 +607,7 @@ static func check(unit):
 	
 	if unit.get_buff_names().has("Dream"):
 		for buff in unit.Buffs:
-				if buff.name == "Dream":
+				if buff.title == "Dream":
 					
 						
 						var action = {
@@ -634,7 +634,7 @@ static func check(unit):
 				var amount = 1
 				var buff_scaling = 0.0
 				for buff in unit.Buffs:
-					if buff.name == "Dream":
+					if buff.title == "Dream":
 						buff_scaling = float(buff.duration)
 						amount += buff.duration
 						if amount > 5: amount = 5
@@ -680,7 +680,7 @@ static func check(unit):
 		
 		if unit.get_buff_names().has("Treeform") and traits.has("Arborus"):
 				for buff in unit.Buffs:
-					if buff.name == "Treeform":
+					if buff.title == "Treeform":
 						var amount = buff.duration
 						if amount > 30: amount = 30
 						for duration in amount:
@@ -751,7 +751,7 @@ static func check(unit):
 			if Global.Enemies.size() > 0:
 				var damage = 0.0
 				for buff in unit.Buffs:
-					if buff.name == "Inflame":
+					if buff.title == "Inflame":
 						damage += buff.duration * 10.0
 						damage = float(damage)
 				
@@ -1019,7 +1019,7 @@ static func check(unit):
 		if traits.has("Geistform"):
 			if Global.Enemies.size() > 0:
 				for buff in unit.Buffs:
-					if buff.name == "Crystalform":
+					if buff.title == "Crystalform":
 			
 						var action = {
 				"name": "heal", 
@@ -1302,7 +1302,7 @@ static func check(unit):
 
 				var scaled_duration = 1
 				for checkbuff in unit.Buffs:
-					if checkbuff.name == "Repulsion":
+					if checkbuff.title == "Repulsion":
 						scaled_duration = int(float(checkbuff.duration) * (0.05 * float(unit.get_traits().MasterRepulsion.Level)))
 						if scaled_duration < 1: scaled_duration = 1
 				var buff = cloner.clone_dict(LBuffs.buff_data.Repulsion)

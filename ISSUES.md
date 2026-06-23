@@ -1,3 +1,9 @@
+### [Translated Buff Names Broke Runtime Buff Matching]
+**Date:** 2026-06-23
+**Symptom:** With the Korean patch installed, buff-driven stat changes did not update correctly in the character sheet, inventory sheet, or character hover UI. A reported example was Champion's Poise-based speed bonus not appearing even with hundreds of Poise stacks.
+**Cause:** `Table_Buffs.name` is translated for display, but many GDScript paths used `buff.name` as an internal key and compared it to shipped English identifiers such as `"Poise"`, `"Freeze"`, and `"Protection"`. Once `name` became Korean, those comparisons failed. This affects stat display and can also affect gameplay logic that depends on buff-name matching.
+**Resolution:** `translate_gdc_strings.py` now postprocesses generated GDScript so internal buff matching uses `buff.title` while display strings keep using translated `buff.name`. It also recompiles every mapped GDC so unchanged-but-required scripts such as `StatePlayerSheet.gdc` are present. `build_korean_patch.py` now fails if a mapped GDC replacement is missing instead of silently omitting it.
+
 ### [Translated Internal Enums Broke Runtime Matching]
 **Date:** 2026-04-09
 **Symptom:** 한글 패치 적용 후 특성 화면 컬럼이 비어 보이거나 기도 충전이 전혀 되지 않았다.

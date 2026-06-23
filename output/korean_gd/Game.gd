@@ -142,7 +142,7 @@ func level_cleared():
 		
 		
 		for buff in Player.Buffs:
-			if buff.name == "Entangle":
+			if buff.title == "Entangle":
 				var action = {
 					"name": "remove_buff", 
 					"target": Player, 
@@ -152,7 +152,7 @@ func level_cleared():
 				ProcessQueue.add_effect(action)
 				ToolMessageCreator.add_message("[color=#707070]", "[color=#60af20]덩굴[/color]이 풀리기 시작한다...")
 			
-			if buff.name == "Bleed":
+			if buff.title == "Bleed":
 				var action = {
 					"name": "remove_buff", 
 					"target": Player, 
