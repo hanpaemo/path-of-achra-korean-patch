@@ -878,7 +878,7 @@ static func check(unit):
 				for ally in Global.Allies:
 					if ally != Global.Player:
 						
-						if ally.type.tags.has("[color=#00a000]Plant[/color]"):
+						if ally.type.tags.has("[color=#00a000]식물[/color]"):
 						
 							var life_gain = (0.05 * float(trait.Level)) * ally.HP_max
 							if life_gain > 1000.0:

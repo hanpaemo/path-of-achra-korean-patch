@@ -40,7 +40,7 @@ static func modify_abilities(type, summoner):
 	
 	if traits.has("Overgrowth"):
 		if type.abilities.has("Familiar"):
-			type.tags.append("[color=#00a000]Plant[/color]")
+			type.tags.append("[color=#00a000]식물[/color]")
 	
 	if traits.has("Oozemancer"):
 		if type.title == "ooze":
@@ -62,7 +62,7 @@ static func check_effects(alliance, type, tile, summoner):
 	
 	if traits.has("Liturgist"):
 		if Global.Enemies.size():
-			if type.tags.has("[color=#8050f0]Priest[/color]"):
+			if type.tags.has("[color=#8050f0]사제[/color]"):
 			
 				var amount = 0
 				for title in traits:

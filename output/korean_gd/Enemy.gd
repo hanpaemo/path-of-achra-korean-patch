@@ -1078,7 +1078,7 @@ func add_bonuses():
 			
 			
 			if traits.has("SnakeCharmer"):
-				if type.tags.has("[color=#10df90]Reptile[/color]"):
+				if type.tags.has("[color=#10df90]파충류[/color]"):
 					action = {
 				"name": "apply_bonus", 
 				"origin": unit, 

@@ -1,7 +1,25 @@
+### [Translated Runtime Tags Broke Tag-Based Effects]
+**Date:** 2026-06-23
+**Symptom:** Tag-based effects for plants, fungi, reptiles, priests, and undead could fail under the Korean patch.
+**Cause:** `Table_Allies.tags` values are translated for display, but several GDScript checks still compared against the shipped English colored tag literals such as `Plant`, `Fungus`, `Reptile`, and `Priest`.
+**Resolution:** `translate_gdc_strings.py` now postprocesses runtime tag literals so GDScript comparisons and appended tags match the translated table values. The QA pass checks for stale English runtime tag literals.
+
+### [Buff Postprocessor Missed effect Alias]
+**Date:** 2026-06-23
+**Symptom:** Blood Mask could fail to heal from Bleed stacks after the Korean patch even after the main buff-name fix.
+**Cause:** The buff-name postprocessor recognized variables containing `buff`, but `RouterEvents_OnAttack.gd` used the alias `effect.name` while iterating over `attacker.Buffs`.
+**Resolution:** `is_buff_expr` now treats `effect` as a buff dictionary alias, so the generated script uses `effect.title` for internal Bleed matching.
+
+### [Priest Tooltip BBCode Had Unmatched Color Close]
+**Date:** 2026-06-23
+**Symptom:** The Priest unit tooltip had an extra closing color tag in the translated effect explanation.
+**Cause:** The source string contains an unbalanced color close, and the Korean row preserved the close without adding the intended gray color wrapper.
+**Resolution:** The Priest `Description_Unit` translation now wraps the note in a matching gray color tag. The QA pass rejects newly introduced color-tag imbalance and unmatched close tags.
+
 ### [Translated Buff Names Broke Runtime Buff Matching]
 **Date:** 2026-06-23
 **Symptom:** With the Korean patch installed, buff-driven stat changes did not update correctly in the character sheet, inventory sheet, or character hover UI. A reported example was Champion's Poise-based speed bonus not appearing even with hundreds of Poise stacks.
-**Cause:** `Table_Buffs.name` is translated for display, but many GDScript paths used `buff.name` as an internal key and compared it to shipped English identifiers such as `"Poise"`, `"Freeze"`, and `"Protection"`. Once `name` became Korean, those comparisons failed. This affects stat display and can also affect gameplay logic that depends on buff-name matching.
+**Cause:** `Table_Buffs.name` is translated for display, but many GDScript paths used `buff.name` as an internal key and compared it to shipped English identifiers such as `Poise`, `Freeze`, and `Protection`. Once `name` became Korean, those comparisons failed. This affects stat display and can also affect gameplay logic that depends on buff-name matching.
 **Resolution:** `translate_gdc_strings.py` now postprocesses generated GDScript so internal buff matching uses `buff.title` while display strings keep using translated `buff.name`. It also recompiles every mapped GDC so unchanged-but-required scripts such as `StatePlayerSheet.gdc` are present. `build_korean_patch.py` now fails if a mapped GDC replacement is missing instead of silently omitting it.
 
 ### [Translated Internal Enums Broke Runtime Matching]

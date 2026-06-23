@@ -1734,7 +1734,7 @@ static func check_effects(attacker, defender, weapon):
 				if buff.title == "Vineform":
 					for unit in Global.Allies:
 						if unit != Global.Player:
-							if unit.type.tags.has("[color=#00a000]Plant[/color]"):
+							if unit.type.tags.has("[color=#00a000]식물[/color]"):
 								action = {
 			"name": "apply_bonus", 
 			"origin": attacker, 
@@ -3024,7 +3024,7 @@ static func check_effects(attacker, defender, weapon):
 			ProcessQueue.add_effect(action)
 			
 			for effect in attacker.Buffs:
-				if effect.name == "Bleed":
+				if effect.title == "Bleed":
 					action = {
 					"name": "heal", 
 					"amount": effect.duration, 
@@ -3087,7 +3087,7 @@ static func check_effects(attacker, defender, weapon):
 					
 
 	if attacker.object_type == "ally" and defender.object_type == "enemy":
-		if attacker.type.tags.has("[color=#00a000]Plant[/color]"):
+		if attacker.type.tags.has("[color=#00a000]식물[/color]"):
 			if Global.Player.get_traits().has("ErtHunab"):
 				var trait = Global.Player.get_traits().ErtHunab
 				var buff = cloner.clone_dict(LBuffs.buff_data.Entangle)
@@ -3102,7 +3102,7 @@ static func check_effects(attacker, defender, weapon):
 				ProcessQueue.add_effect(action)
 
 	if defender != Global.Player:
-		if defender.type.tags.has("[color=#00a000]Plant[/color]"):
+		if defender.type.tags.has("[color=#00a000]식물[/color]"):
 			if Global.Player.get_traits().has("Overgrowth"):
 				var trait = Global.Player.get_traits().Overgrowth
 				var buff = cloner.clone_dict(LBuffs.buff_data.Entangle)
@@ -3116,12 +3116,12 @@ static func check_effects(attacker, defender, weapon):
 			}
 				ProcessQueue.add_effect(action)
 		
-		if defender.type.tags.has("[color=#30f000]Fungus[/color]"):
+		if defender.type.tags.has("[color=#30f000]균류[/color]"):
 			if Global.Player.get_traits().has("Gliva"):
 				var damage = 0.0
 				for ally in Global.Allies:
 					if ally != Global.Player:
-						if ally.type.tags.has("[color=#30f000]Fungus[/color]"):
+						if ally.type.tags.has("[color=#30f000]균류[/color]"):
 							damage += 1.0
 				damage *= Global.Player.get_total_WIL()
 			

@@ -1557,10 +1557,19 @@ INTERNAL_BUFF_NAME_ARG_RE = re.compile(
     rf"(?P<prefix>\b(?:check_effects|buffcheck\.just_draw)\([^)\n]*?)(?P<expr>{BUFF_EXPR})\.name(?P<suffix>\s*,)"
 )
 
+RUNTIME_TAG_LITERAL_TRANSLATIONS = {
+    "[color=#00a000]Plant[/color]": "[color=#00a000]식물[/color]",
+    "[color=#10df90]Reptile[/color]": "[color=#10df90]파충류[/color]",
+    "[color=#30f000]Fungus[/color]": "[color=#30f000]균류[/color]",
+    "[color=#8050f0]Priest[/color]": "[color=#8050f0]사제[/color]",
+    "[color=#a0a000]Undead[/color]": "[color=#a0a000]불사[/color]",
+}
+
 
 def is_buff_expr(expr: str) -> bool:
     """Return True for expressions that point at buff dictionaries."""
-    return any("buff" in part.lower() for part in expr.split("."))
+    parts = [part.lower() for part in expr.split(".")]
+    return expr == "effect" or any("buff" in part for part in parts)
 
 
 def use_buff_titles_for_internal_keys(text: str) -> str:
@@ -1593,10 +1602,18 @@ def use_buff_titles_for_internal_keys(text: str) -> str:
     return text
 
 
+def translate_runtime_tag_literals(text: str) -> str:
+    """Match GDScript tag comparisons to translated Table_Allies tags."""
+    for english, korean in RUNTIME_TAG_LITERAL_TRANSLATIONS.items():
+        text = text.replace(english, korean)
+    return text
+
+
 def translate_file(src: Path, dst: Path) -> bool:
     """Read a .gd file, translate, and write to dst. Return True if changed."""
     original = src.read_text(encoding="utf-8")
     translated = apply_translations(original)
+    translated = translate_runtime_tag_literals(translated)
     translated = use_buff_titles_for_internal_keys(translated)
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(translated, encoding="utf-8")

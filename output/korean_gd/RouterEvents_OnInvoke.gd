@@ -799,7 +799,7 @@ static func effects(caster, label, god):
 				for ally in Global.Allies:
 					if ally != Global.Player:
 						
-						if ally.type.tags.has("[color=#00a000]Plant[/color]"):
+						if ally.type.tags.has("[color=#00a000]식물[/color]"):
 						
 							var life_gain = (0.05 * float(trait.Level)) * ally.HP_max
 							if life_gain > 1000.0:
@@ -966,7 +966,7 @@ static func effects(caster, label, god):
 		
 		for ally in Global.Allies:
 				if ally != Global.Player:
-					if ally.type.tags.has("[color=#8050f0]Priest[/color]"):
+					if ally.type.tags.has("[color=#8050f0]사제[/color]"):
 						
 					
 						var action = {
@@ -1002,7 +1002,7 @@ static func effects(caster, label, god):
 			
 			for ally in Global.Allies:
 					if ally != Global.Player:
-						if ally.type.tags.has("[color=#00a000]Plant[/color]"):
+						if ally.type.tags.has("[color=#00a000]식물[/color]"):
 
 							var action = {
 			"name": "apply_bonus", 

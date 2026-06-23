@@ -1,10 +1,10 @@
-# Path of Achra 한국어 패치 v1.4
+# Path of Achra 한국어 패치 v1.4.1
 
 ![Path of Achra 한국어 패치](1.jpg)
 
 **Path of Achra**의 비공식 한국어 패치입니다.
 
-- **최신 버전**: `v1.4`
+- **최신 버전**: `v1.4.1`
 - **게임**: [Path of Achra](https://store.steampowered.com/app/2128270/Path_of_Achra/) (Steam)
 - **엔진**: Godot 3.5.2
 - **번역 범위**: JSON 데이터 테이블 + GDScript 하드코딩 문자열 + TSCN UI 라벨
@@ -22,15 +22,15 @@
 
 ## 다운로드
 
-- [GitHub Release v1.4](https://github.com/hanpaemo/path-of-achra-korean-patch/releases/tag/v1.4)
+- [GitHub Release v1.4.1](https://github.com/hanpaemo/path-of-achra-korean-patch/releases/tag/v1.4.1)
 - 권장 파일: `PathofAchra-ko-full.pck`
 
 ## 최신 변경 사항
 
-- 한글 패치 적용 시 캐릭터시트/인벤토리/호버 UI에서 버프 기반 스탯 상승이 반영되지 않던 문제 수정
-- `평정` 등 버프 표시명은 한국어로 유지하면서 내부 판정은 원문 식별자 기준으로 동작하도록 보정
-- `ToolStatMods.gdc`, `StatePlayerSheet.gdc` 등 필수 스크립트 누락 방지 검증 강화
-- 전체 GDScript 교체 대상 재컴파일로 동일 계열 회귀 방지
+- 버프, 태그, BBCode를 전면 검수한 v1.4.1 후속 패치
+- 혈가면의 출혈 기반 회복 판정에서 남아 있던 내부 버프명 비교 수정
+- 식물, 균류, 파충류, 사제 태그 기반 효과가 한국어 태그와 맞도록 보정
+- 사제 특성 툴팁의 색상 태그 닫힘 오류 수정
 
 ## 설치 방법
 
@@ -53,6 +53,13 @@
 - 문제가 있으면 [Issues](../../issues)에 제보해주세요.
 
 ## 변경 이력
+
+### v1.4.1
+
+- 혈가면 효과의 출혈 판정이 한국어 패치에서 실패할 수 있던 문제 수정
+- 식물, 균류, 파충류, 사제 태그를 검사하는 효과가 번역된 태그와 맞도록 보정
+- 사제 특성 툴팁의 BBCode 색상 태그 오류 수정
+- 보호 필드, 태그 비교, 버프 비교, BBCode, 미번역 후보 전면 검수 통과
 
 ### v1.4
 
